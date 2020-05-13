@@ -14,7 +14,7 @@ export default ({auth, unSetAuth})=>{
   console.log(auth);
   if(!auth.logged){
     return(
-      <nav>
+      <nav class="nav1">
         <NavItem to="/">&nbsp;Principal</NavItem>
         <NavItem to="/edificiosSolicitud">&nbsp;Solicitud</NavItem>
         <NavItem to="/login">&nbsp;Iniciar Sesión</NavItem>
@@ -22,7 +22,7 @@ export default ({auth, unSetAuth})=>{
     )
   } else {
     return (
-      <nav>
+      <nav class="nav2">
         <NavItem to="/">&nbsp;Principal</NavItem>
         <NavItem to="/misOrdenes">&nbsp;Solicitudes</NavItem>
         <NavItem to="/backlog">&nbsp;Edificios</NavItem>

@@ -1,4 +1,4 @@
-nav {
+nav.nav1{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +10,19 @@ nav {
   background-color: transparent;
   width: 100%;
 }
+nav.nav2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  height: 65px;
+  position: absolute;
+  z-index: 90;
+  background-color: transparent;
+  width: 100%;
+}
+
 nav a {
   box-sizing: border-box;
   padding: 1rem;
@@ -26,4 +39,21 @@ nav a {
 nav a:hover{
   background-color: #b0ebf3;
   color:#fff;
+}
+
+@media (max-width: 657px)
+{
+  nav.nav2{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    height: 65px;
+    position: absolute;
+    z-index: 90;
+    background-color: transparent;
+    width: 100%;
+  }
 }
