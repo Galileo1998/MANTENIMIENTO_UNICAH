@@ -16,6 +16,7 @@ import EdificiosSolicitud  from './Components/Pages/Public/ProductosDisponibles/
 import Orden  from './Components/Pages/Public/ProductosDisponibles/orden';
 import BacklogAdd from './Components/Pages/Private/Backlog/BacklogAdd';
 import DetailAdd from './Components/Pages/Private/Detail/DetailAdd';
+import Reportes from './Components/Pages/Private/Backlog/Reporte';
 import DetailUpdate from './Components/Pages/Private/Detail/DetailUpdate';
 import DetailDelete from './Components/Pages/Private/Detail/DetailDelete';
 import MisOrdenes from './Components/Pages/Private/Backlog/misOrdenes';
@@ -80,6 +81,7 @@ class App extends Component {
               <PrivateRoute path="/signin"  auth={this.state.auth} component={Sigin} />
               <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard} />
               <Route path="/backlog" component={Edificios} />
+              <PrivateRoute path="/reporte/:id/:idEdificio/:nombreEdificio/:pisosEdificio/:bannosEdificio/:aulasEdificio/:oficinasEdificio/:observacion" auth={this.state.auth}  component={Reportes}/>
               <PrivateRoute path="/backlogadd/:type/:dd" auth={this.state.auth} component={BacklogAdd} />
               <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd} />
               <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate} />

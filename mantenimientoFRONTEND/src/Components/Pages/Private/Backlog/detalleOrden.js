@@ -4,7 +4,7 @@ import Campo from '../../../Common/Campo/Campo';
 import { paxios } from '../../../../Utilities';
 import './detalleOrden.css';
 import TextArea from '../../../Common/TextArea/TextArea';
-
+import {Link} from 'react-router-dom';
 
 export default class DetalleOrden extends Component {
     constructor(){
@@ -52,17 +52,9 @@ export default class DetalleOrden extends Component {
       })
       .catch((error) => {
         console.log(error);
-        this.setState({ error: "Error al actualizar nuevo Producto" });
+        this.setState({ error: "Error al actualizar solicitud" });
       })
 
-    paxios.delete(`/api/things/${this.state.idProducto}`, { estado })
-      .then(({ data }) => {
-        this.props.history.push("/misOrdenes");
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ error: "Error al actualizar nuevo Producto" });
-      })
   }
 
   render() {
@@ -70,7 +62,7 @@ export default class DetalleOrden extends Component {
     return (
       <section className="inicio" >
         <center>
-        <h1>Orden con Id: {this.props.match.params.id}</h1>
+        <h1>Reporte : {this.props.match.params.id}</h1>
         <section className="main fix640 " >
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <div  >
@@ -98,14 +90,15 @@ export default class DetalleOrden extends Component {
           </div>
           <TextArea
                 caption="Observaciones (Jefe de mantenimiento)"
-                value={this.state.descripcionReportar}
-                name="descripcionReportar"
+                value={this.state.observacion}
+                name="observacion"
                 onChange={this.onChangeHandler}
                 maxLenght="300"
           />
+          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}`}>Imprimir Reporte</Link>
           <section className="action">
             <Button
-              caption="Confirmar Orden"
+              caption="Confirmar Solicitud"
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />
