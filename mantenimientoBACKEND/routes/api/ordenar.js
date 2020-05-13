@@ -30,6 +30,7 @@ var thingsStruct = {
     "fechaMes": 0,
     "fechaAnno": 0,
     "imagenReporte": '',
+    "observacion": '',
     "dd":'NA',
     "type":""
   };

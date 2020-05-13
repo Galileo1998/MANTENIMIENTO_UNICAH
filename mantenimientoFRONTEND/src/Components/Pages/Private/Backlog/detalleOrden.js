@@ -46,7 +46,8 @@ export default class DetalleOrden extends Component {
   }
   onSaveBtnClick(e) {
     const estado = 'Confirmado';
-    paxios.put(`/api/ordenar/${this.props.match.params.id}`, {estado})
+    const observacion = this.state.observacion;
+    paxios.put(`/api/ordenar/${this.props.match.params.id}`, {estado, observacion})
       .then(({ data }) => {
         this.props.history.push("/backlog");
       })
