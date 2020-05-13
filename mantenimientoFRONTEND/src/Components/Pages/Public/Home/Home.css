@@ -1,7 +1,6 @@
 .home {
   box-sizing: border-box;
-  background-color: #88e688;
-  background: url("../../../../Sources/16.jpeg") no-repeat center center;
+  background-color: #b0ebf3;
   background-size: cover;
   height: 100%;
   color: white;
@@ -18,26 +17,22 @@
 
 .btnout{
   margin-top: 150px;
-  width: 100%;
+  width: 60%;
+  color: #fff;
   align-items: center;
-  margin-left: 90px;
+  margin-left: 0px;
 }
 .home h1{
-  text-align:center !important;
+  text-align: justify;
   justify-content: center;
   align-self: center;
-  width:90%;
+  width:100%;
 }
-.home .half{
-  width:50%;
-}
+
 
 .btnout{
   z-index: 100;
+  color: #002a80;
   position: absolute;
 }
 
-.fond{
-  background-color: #4BAD2F;
-  color: white;
-}

@@ -11,7 +11,7 @@ import Login from './Components/Pages/Public/Login/Login';
 
 import Sigin from './Components/Pages/Public/Signin/Sigin';
 import Dashboard from  './Components/Pages/Private/Dashboard/Dashboard';
-import Backlog  from './Components/Pages/Private/Backlog/Backlog';
+import Edificios  from './Components/Pages/Private/Backlog/Backlog';
 import Venta  from './Components/Pages/Public/ProductosDisponibles/products';
 import Orden  from './Components/Pages/Public/ProductosDisponibles/orden';
 import BacklogAdd from './Components/Pages/Private/Backlog/BacklogAdd';
@@ -79,7 +79,7 @@ class App extends Component {
               <Route path="/orden/:id/:desc/:prec/:cate/:peso" component={Orden}/>
               <PrivateRoute path="/signin"  auth={this.state.auth} component={Sigin} />
               <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard} />
-              <Route path="/backlog" component={Backlog} />
+              <Route path="/backlog" component={Edificios} />
               <PrivateRoute path="/backlogadd/:type/:dd" auth={this.state.auth} component={BacklogAdd} />
               <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd} />
               <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate} />

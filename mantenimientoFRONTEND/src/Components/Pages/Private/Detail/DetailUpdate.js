@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
 import { paxios } from '../../../../Utilities';
-
+import './Detail.css';
 
 export default class DetailUpdate extends Component {
   constructor() {
     super();
     //definición del estado inicial
     this.state = {
-      descripcion: '',
-      precio: 0,
-      peso: 0.00,
-      categoria: '',
+      idEdificio: 0,
+      nombreEdificio:'',
+      pisosEdificio: 0,
+      bannosEdificio: 0,
+      aulasEdificio: 0,
+      oficinasEdificio: 0,
       error: false
     };
     //Para el autobinding
@@ -22,7 +24,7 @@ export default class DetailUpdate extends Component {
 
   componentDidMount(){
     const { match: {params}} = this.props;
-    const uri = `/api/things/${params.id}`;
+    const uri = `/api/edificios/${params.id}`;
     paxios.get(uri)
     .then(
       ({data})=>{
@@ -42,8 +44,8 @@ export default class DetailUpdate extends Component {
     this.setState({ ...this.state, [name]: value });
   }
   onSaveBtnClick(e) {
-    const { descripcion,precio,peso, categoria,  _id } = this.state;
-    paxios.put(`/api/things/${_id}`, { descripcion, precio, peso, categoria})
+    const { idEdificio, nombreEdificio, pisosEdificio, bannosEdificio, aulasEdificio, oficinasEdificio ,  _id } = this.state;
+    paxios.put(`/api/edificios/${_id}`, { idEdificio, nombreEdificio, pisosEdificio, bannosEdificio, aulasEdificio, oficinasEdificio })
       .then(({ data }) => {
         this.props.history.push("/backlog");
       })
@@ -56,32 +58,46 @@ export default class DetailUpdate extends Component {
   render() {
     console.log(this.state);
     return (
-      <section>
-        <h1>{this.props.match.params.id}</h1>
+      <section className="inicio">
+        <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
+        <section>
+        <h1>ACTUALIZAR EDIFICIO O ESPACIO: {this.props.match.params.id}</h1>
+        <center>
         <section className="main fix640">
-          <Campo
-            caption="Descripción"
-            value={this.state.descripcion}
-            name="descripcion"
+        <Campo
+            caption="Identificador del edificio:"
+            value={this.state.idEdificio}
+            name="idEdificio"
             onChange={this.onChangeHandler}
           />
-
-          <Campo
-            caption="Precio"
-            value={this.state.precio}
-            name="precio"
-            onChange={this.onChangeHandler}
-          />
-          <Campo
-            caption="Peso"
-            value={this.state.peso}
-            name="peso"
+         <Campo
+            caption="Nombre del edificio:"
+            value={this.state.nombreEdificio}
+            name="nombreEdificio"
             onChange={this.onChangeHandler}
           />
           <Campo
-            caption="Categoría"
-            value={this.state.categoria}
-            name="categoria"
+            caption="Número de pisos del edificio:"
+            value={this.state.pisosEdificio}
+            name="pisosEdificio"
+            onChange={this.onChangeHandler}
+          />
+          <Campo
+            caption="Número de baños en el edificio o espacio:"
+            value={this.state.bannosEdificio}
+            name="bannosEdificio"
+            onChange={this.onChangeHandler}
+          />
+          <Campo
+            caption="Número de aulas en el edificio:"
+            value={this.state.aulasEdificio}
+            name="aulasEdificio"
+            onChange={this.onChangeHandler}
+          />
+          <Campo
+            caption="Número de oficinas en el edificio:"
+            value={this.state.oficinasEdificio}
+            name="oficinasEdificio"
             onChange={this.onChangeHandler}
           />
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
@@ -89,7 +105,7 @@ export default class DetailUpdate extends Component {
             <Button
               caption="Actualizar producto"
               onClick={this.onSaveBtnClick}
-              customClass="primary"
+              customClass="secondary"
             />
             <br></br>
             <Button
@@ -99,6 +115,9 @@ export default class DetailUpdate extends Component {
             />
           </section>
         </section>
+        </center>
+        </section>
+        </div>
       </section>
     );
   }

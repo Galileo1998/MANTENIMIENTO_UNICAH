@@ -17,13 +17,13 @@ nav a {
   color: rgb(255, 255, 255);
   text-decoration: none;
   text-align: center;
-  background-color: rgba(94, 94, 94, 0.3);
+  background-color: #002A80;
   width: 50%;
   height: 100%;
   justify-content: center;
 }
 
 nav a:hover{
-  background-color: #4BAD2F;
+  background-color: #b0ebf3;
   color:#fff;
 }

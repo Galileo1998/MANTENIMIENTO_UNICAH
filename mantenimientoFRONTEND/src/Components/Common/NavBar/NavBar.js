@@ -15,18 +15,17 @@ export default ({auth, unSetAuth})=>{
   if(!auth.logged){
     return(
       <nav>
-        <NavItem to="/">&nbsp;Home</NavItem>
-        <NavItem to="/galeria">&nbsp;Galería</NavItem>
-        <NavItem to="/venta">&nbsp;Catalogo</NavItem>
+        <NavItem to="/">&nbsp;Principal</NavItem>
+        <NavItem to="/venta">&nbsp;Solicitud</NavItem>
         <NavItem to="/login">&nbsp;Iniciar Sesión</NavItem>
       </nav>
     )
   } else {
     return (
       <nav>
-        <NavItem to="/">&nbsp;Home</NavItem>
-        <NavItem to="/misOrdenes">&nbsp;Ordenes</NavItem>
-        <NavItem to="/backlog">&nbsp;Productos</NavItem>
+        <NavItem to="/">&nbsp;Principal</NavItem>
+        <NavItem to="/misOrdenes">&nbsp;Solicitudes</NavItem>
+        <NavItem to="/backlog">&nbsp;Edificios</NavItem>
         <NavItem to="/signin">&nbsp;Nuevo Usuario</NavItem>
       </nav>
     )

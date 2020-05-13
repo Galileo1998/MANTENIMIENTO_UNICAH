@@ -25,7 +25,7 @@ export default class Venta extends Component {
   }
   loadMore(page){
     const items  = this.state.itemsToLoad;
-    const uri = `/api/things/page/${page}/${items}/NA`;
+    const uri = `/api/edificios/page/${page}/${items}/NA`;
     naxios.get(uri)
       .then(
         ({data})=>{

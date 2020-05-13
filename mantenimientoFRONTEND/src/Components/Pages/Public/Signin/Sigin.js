@@ -53,7 +53,7 @@ export default class Signin extends Component{
     return (
       
       <section className="inicio">
-        
+        <center>
         <div className="fix640">
           <h1>Crear Cuenta</h1>
         </div>
@@ -79,6 +79,7 @@ export default class Signin extends Component{
                 onClick={this.onSiginBtnClick}
                 customClass="btnsuccess"
               />
+              
 
               <Button
                 to='/cuentas'
@@ -89,6 +90,7 @@ export default class Signin extends Component{
           </section>
         
         </section>
+        </center>
       </section>
     );
   }

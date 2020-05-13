@@ -26,7 +26,7 @@ export default class Backlog extends Component {
 
   loadMore(page){
     const items  = this.state.itemsToLoad;
-    const uri = `/api/things/page/${page}/${items}`;
+    const uri = `/api/edificios/page/${page}/${items}`;
     paxios.get(uri)
       .then(
         ({data})=>{
@@ -55,7 +55,7 @@ export default class Backlog extends Component {
 
   componentDidMount(){
     this.setState({isLoading:true});
-    paxios.get('/api/things/')
+    paxios.get('/api/edificios/')
       .then( (resp)=>{
         this.setState({thingse:resp.data, isLoading:false});
       })
@@ -73,7 +73,9 @@ export default class Backlog extends Component {
       return (
         <div className="thingItem" key={thing._id}>
           
-          <span>{thing.descripcion}</span>
+          <span>{thing.idEdificio}</span>
+          <span>{thing.nombreEdificio}</span>
+          <span>Pisos: {thing.pisosEdificio}</span>
           <span className="updateThing">
             <Link to={`/detailupdate/${thing._id}`}>
               <IoIosSettings size="2em"/>
@@ -89,14 +91,14 @@ export default class Backlog extends Component {
 
   if(!items.length) items.push(
     <div className="thingItem" key="pbBackLogAddOne">
-      <span>Nuevo producto</span>
+      <span>Nuevo edificio o espacio</span>
     </div>);
 
   return (
     <section className="inicio">
 
       <h1>
-        Productos
+        Edificios y Espacios
         <span className="addThing">
           <Link to="/detailadd">
             <IoMdAddCircle size="1.5em" />

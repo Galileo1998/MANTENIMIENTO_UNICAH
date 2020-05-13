@@ -4,10 +4,13 @@
 import React, { Component } from 'react';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
+import InfiniteScroll from 'react-infinite-scroller';
+import {IoIosSync, IoMdAddCircle, IoIosRemove, IoIosSettings } from 'react-icons/io';
 import axios from 'axios';
 import { paxios } from '../../../../Utilities';
 import { timingSafeEqual } from 'crypto';
-
+import './Detail.css';
+/*
 /*
   module.exports = class Login .....
 */
@@ -16,12 +19,12 @@ export default class DetailAdd extends Component {
     super();
     //definición del estado inicial
     this.state = {
-      selectedFile: null,
-      descripcion:'',
-      precio: 0.00,
-      peso: 0.00,
-      categoria: '',
-      imagen: null,
+      idEdificio: 0,
+      nombreEdificio:'',
+      pisosEdificio: 0,
+      bannosEdificio: 0,
+      aulasEdificio: 0,
+      oficinasEdificio: 0,
       error: false
     };
     //Para el autobinding
@@ -46,8 +49,8 @@ export default class DetailAdd extends Component {
     this.setState({ ...this.state, [name]: value });
   }
   onSaveBtnClick(e) {
-    const { descripcion, precio, peso, categoria, imagen } = this.state;
-    paxios.post('/api/things', { descripcion, precio, peso, categoria, imagen })
+    const { idEdificio, nombreEdificio, pisosEdificio, bannosEdificio, aulasEdificio, oficinasEdificio } = this.state;
+    paxios.post('/api/edificios', { idEdificio, nombreEdificio, pisosEdificio, bannosEdificio, aulasEdificio, oficinasEdificio })
       .then(({ data }) => {
         this.props.history.goBack();
       })
@@ -59,47 +62,55 @@ export default class DetailAdd extends Component {
 
   render() {
     return (
-      <section>
-        <h1>Crear Nuevo Producto</h1>
+      <section className="inicio">
+        <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
+        <section>
+        <h1>CREAR NUEVO EDIFICIO O ESPACIO</h1>
+        <center>
         <section className="main fix640">
           <Campo
-            caption="Descripción"
-            value={this.state.descripcion}
-            name="descripcion"
+            caption="Identificador del edificio:"
+            value={this.state.idEdificio}
+            name="idEdificio"
             onChange={this.onChangeHandler}
           />
          <Campo
-            caption="Precio"
-            value={this.state.precio}
-            name="precio"
+            caption="Nombre del edificio:"
+            value={this.state.nombreEdificio}
+            name="nombreEdificio"
             onChange={this.onChangeHandler}
           />
           <Campo
-            caption="Peso"
-            value={this.state.peso}
-            name="peso"
+            caption="Número de pisos del edificio:"
+            value={this.state.pisosEdificio}
+            name="pisosEdificio"
             onChange={this.onChangeHandler}
           />
           <Campo
-            caption="Categoría"
-            value={this.state.categoria}
-            name="categoria"
+            caption="Número de baños en el edificio o espacio:"
+            value={this.state.bannosEdificio}
+            name="bannosEdificio"
             onChange={this.onChangeHandler}
           />
-         <Campo
-            caption="Imagen"
-            type= "file"
-            value={this.state.imagen}
-            name="imagen"
+          <Campo
+            caption="Número de aulas en el edificio:"
+            value={this.state.aulasEdificio}
+            name="aulasEdificio"
             onChange={this.onChangeHandler}
-            //onChange={(e)=>this.handleFile(e)}
           />
+          <Campo
+            caption="Número de oficinas en el edificio:"
+            value={this.state.oficinasEdificio}
+            name="oficinasEdificio"
+            onChange={this.onChangeHandler}
+          />
+
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <section className="action">
             <Button
-              caption="Crear Producto"
+              caption="Crear Edificio o espacio"
               onClick={this.onSaveBtnClick}
-              customClass="primary"
+              customClass="secondary"
             />
             <br></br>
             <Button
@@ -107,8 +118,11 @@ export default class DetailAdd extends Component {
               customClass="secondary"
               onClick={(e) => { this.props.history.goBack() }}
             />
+            </section>
+            </section>
+            </center>
           </section>
-        </section>
+        </div>
       </section>
     );
   }

@@ -8,7 +8,7 @@
   display: flex;
   box-sizing: 1px;
   padding: 1rem;
-  border-bottom: 1px solid #4BAD2F;
+  border-bottom: 1px solid #002a80;
   min-height: 3rem;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,7 @@ h1{
 }
 
 .btnsuccess{
-   background-color: #4BAD2F;
+   background-color: #002a80;
    border-radius: 100px !important;
    color: white;
    font-weight: normal;

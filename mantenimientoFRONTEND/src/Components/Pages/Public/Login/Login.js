@@ -57,8 +57,9 @@ export default class Login extends Component{
       );
     }
     return (
-      <section className="inicio">
-
+    
+      <section className="">
+        <center>
         <div className="fix640">
           <h1>Iniciar Sesión</h1>
         </div>
@@ -87,6 +88,7 @@ export default class Login extends Component{
 
           </section>
         </section>
+        </center>
       </section>
     );
   }
