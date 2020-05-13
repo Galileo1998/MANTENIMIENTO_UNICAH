@@ -16,7 +16,7 @@ export default ({auth, unSetAuth})=>{
     return(
       <nav>
         <NavItem to="/">&nbsp;Principal</NavItem>
-        <NavItem to="/venta">&nbsp;Solicitud</NavItem>
+        <NavItem to="/edificiosSolicitud">&nbsp;Solicitud</NavItem>
         <NavItem to="/login">&nbsp;Iniciar Sesión</NavItem>
       </nav>
     )

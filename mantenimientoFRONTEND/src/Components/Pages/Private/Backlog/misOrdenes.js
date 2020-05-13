@@ -45,7 +45,7 @@ class List extends Component{
               <span>{thing.estado}</span>
               <span>{thing.nombre}</span>
               <span>{thing.identidad}</span>
-              <span>{thing.descripcion}</span>
+              <span>{thing.elementoReportar}</span>
               <Link to={`/detalleOrden/${thing._id}`}><IoIosDocument size="2.5em" /></Link>
               <Link to={`/deleteOrden/${thing._id}`}><IoIosRemove size="2em"/></Link>
               <span className="updateThing" onClick={()=>{this.handleClick(thing._id);}}>

@@ -1,0 +1,23 @@
+fieldset{
+  margin-bottom: 1em;
+  border:none;
+  justify-content: center !important;
+  align-items: center !important;
+}
+legend{
+  font-size: 1em;
+}
+textarea{
+  display: flex;
+  box-sizing: border-box;
+  padding:0.5em 1em;
+  border: 1px solid #000;
+  background-color: rgb(204, 219, 221);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-size: 1em;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  outline-style: none;
+}

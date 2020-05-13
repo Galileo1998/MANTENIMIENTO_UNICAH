@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import './Backlog.css';
-import { IoIosShuffle, IoIosMenu, IoIosCash} from 'react-icons/io';
+import { IoIosShuffle, IoIosMenu, IoIosCash, IoIosPaper} from 'react-icons/io';
 import { naxios } from '../../../../Utilities';
 
 function ListItem(props){
@@ -26,7 +26,7 @@ class List extends Component{
   }
   componentDidMount(){
       this.setState({isLoading:true});
-      naxios.get('/api/venta/')
+      naxios.get('/api/solicitud/')
         .then( (resp)=>{
           this.setState({things:resp.data, isLoading:false});
         })
@@ -42,11 +42,10 @@ class List extends Component{
         (thing)=>{
           return (
             <div className="thingItem" key={thing._id}>
-              <span>{thing.descripcion}</span>
-              <span>L. {thing.precio}</span>
-              <span>Kg. {thing.peso}</span>
-              <span>Categoria: {thing.categoria}</span>
-              <Link to={`/orden/${thing._id}/${thing.descripcion}/${thing.precio}/${thing.categoria}/${thing.peso}`}><IoIosCash size="2.5em" /></Link>
+              <span>{thing.idEdificio}</span>
+              <span>{thing.nombreEdificio}</span>
+              <span>Pisos: {thing.pisosEdificio}</span>
+              <Link to={`/ordenar/${thing._id}/${thing.idEdificio}/${thing.nombreEdificio}/${thing.pisosEdificio}/${thing.bannosEdificio}/${thing.aulasEdificio}/${thing.oficinasEdificio}`}><IoIosPaper size="2.5em" /></Link>
               <span className="updateThing" onClick={()=>{this.handleClick(thing._id);}}>
               </span>
             </div>);
@@ -54,9 +53,9 @@ class List extends Component{
       );
     return (
       <div className="listHolder">
-        <div className="inicio"><h1>Productos</h1></div>
+        <div className="inicio"><h1>Edificios y espacios (Generar solicitud de mantenimiento)</h1></div>
       <div className="cantidades">
-      <h2>Cantidad de Productos: {this.state.things.length}</h2>
+      <h2>Cantidad de Edificios o espacios: {this.state.things.length}</h2>
       </div>
       <div>
         {items}

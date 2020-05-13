@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
+import TextArea from '../../../Common/TextArea/TextArea'
 import ScrollArea from 'react-scrollbar';
 import {Link} from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
@@ -15,44 +16,57 @@ export default class Orden extends Component {
   constructor() {
     super();
     //definición del estado inicial
-
+    var time = new Date();
+    var giorno = time.getDate();
+    var messe = parseInt(time.getMonth())+1;
+    var anno = time.getFullYear();
+    var diaDeLaSolicitud = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+', Fecha:'+giorno+'/'+messe+'/'+anno;
     this.state = {
       nombre:'',
       identidad: '',
-      correoElectronico: '',
-      direccion: '',
-      telefono: '',
-      idProducto: '',
-      descripcion: '',
-      precio: 0.00,
-      peso: 0.00,
-      categoria: '',
+      descripcionReportar: '',
+      elementoReportar: '',
+      idEdificio: '',
+      nombreEdificio: '',
+      pisosEdificio: 0,
+      bannosEdificio: 0,
+      aulasEdificio: 0,
+      oficinasEdificio: 0,
+      fechaSolicitud: diaDeLaSolicitud,
+      estado: '',
+      fechaDia: giorno,
+      fechaMes: messe,
+      fechaAnno: anno,
       error: false,
       isLoading: false,
     };
     //Para el autobinding
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onBlurHandler = this.onBlurHandler.bind(this);
-    this.onSaveBtnClick = this.onSaveBtnClick.bind(this);
     this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   onClickHandler(e){
+  
     this.setState({isLoading:true});
     naxios.post(
         `/api/ordenar/nuevaOrden`,
         {
           nombre:this.state.nombre,
           identidad:this.state.identidad,
-          correoElectronico:this.state.correoElectronico,
-          direccion:this.state.direccion,
-          telefono: this.state.telefono,
-          idProducto:  this.props.match.params.id,
-          descripcion: this.props.match.params.desc,
-          precio: this.props.match.params.prec,
-          peso: this.props.match.params.peso,
-          categoria: this.props.match.params.cate,
-          estado: 'Sin confirmar'
+          descripcionReportar: this.state.descripcionReportar,
+          elementoReportar: this.state.elementoReportar,
+          idEdificio:  this.props.match.params.idEdificio,
+          nombreEdificio: this.props.match.params.nombreEdificio,
+          pisosEdificio: this.props.match.params.pisosEdificio,
+          bannosEdificio: this.props.match.params.bannosEdificio,
+          aulasEdificio: this.props.match.params.aulasEdificio,
+          oficinasEdificio: this.props.match.params.oficinasEdificio,
+          fechaSolicitud: this.state.fechaSolicitud,
+          estado: 'Sin confirmar',
+          fechaDia: this.state.fechaDia,
+          fechaMes: this.state.fechaMes,
+          fechaAnno: this.state.fechaAnno,
         }
       ).then(
         ({data})=>{
@@ -74,24 +88,16 @@ export default class Orden extends Component {
     onBlurHandler(e){
       let { name, value } = e.currentTarget;
     }
-  onSaveBtnClick(e) {
-    const { nombre, identidad, correoElectronico, direccion, telefono } = this.state;
-    naxios.post('/api/ordenar/new/', { nombre, identidad, correoElectronico, direccion, telefono })
-      .then(({ data }) => {
-        this.props.history.goBack();
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ error: "Error al ordenar" });
-      })
-  }
+
+
 
   render() {
 
     return (
 
       <section>
-        <h1>Ordenar Producto</h1>
+        <center>
+        <h1>Solicitar mantenimiento</h1>
               <ScrollArea
                 speed = {0.8}
                 className = "area"
@@ -101,7 +107,7 @@ export default class Orden extends Component {
               >
           <section className="main fix640">
 
-              <b>Usted esta ordenando: {this.props.match.params.desc}, precio: L. {this.props.match.params.prec}, categoría: {this.props.match.params.cate}</b>
+              <b>Edificio gestionado: {this.props.match.params.nombreEdificio}, Pisos: {this.props.match.params.pisosEdificio}, Aulas: {this.props.match.params.aulasEdificio}, Oficinas: {this.props.match.params.oficinasEdificio}, Baños: {this.props.match.params.bannosEdificio}</b>
 
               <Campo
                 caption="Nombre"
@@ -116,30 +122,26 @@ export default class Orden extends Component {
                 onChange={this.onChangeHandler}
               />
               <Campo
-                caption="Correo Electrónico"
-                value={this.state.correoElectronico}
-                name="correoElectronico"
+                caption="Elemento a reportar"
+                value={this.state.elementoReportar}
+                name="elementoReportar"
                 onChange={this.onChangeHandler}
               />
-              <Campo
-                caption="Dirección"
-                value={this.state.direccion}
-                name="direccion"
+              <TextArea
+                caption="Descripción del reporte"
+                value={this.state.descripcionReportar}
+                name="descripcionReportar"
                 onChange={this.onChangeHandler}
+                maxLenght="300"
               />
-            <Campo
-                caption="Teléfono"
-                value={this.state.telefono}
-                name="telefono"
-                onChange={this.onChangeHandler}
-              />
+
 
               {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
               <section className="action">
                 <Button
-                  caption="Ordenar"
+                  caption="Enviar"
                   onClick={this.onClickHandler}
-                  customClass="primary"
+                  customClass="secondary"
                 />
                 <div style={{width:50}}></div>
                 <Button
@@ -152,6 +154,7 @@ export default class Orden extends Component {
 
         </section>
          </ScrollArea>
+         </center>
       </section>
 
     );

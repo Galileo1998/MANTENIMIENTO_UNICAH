@@ -49,11 +49,13 @@ export default class Venta extends Component
       render() {
         console.log(this.state);
         return (
+          <section className="inicio">
             <div>
+            <section className="action">
             <Button
-              caption="Eliminar producto"
+              caption="Eliminar solicitud"
               onClick={this.onSaveBtnClick}
-              customClass="primary"
+              customClass="secondary"
             />
             <br></br>
             <Button
@@ -61,7 +63,9 @@ export default class Venta extends Component
               customClass="secondary"
               onClick={(e) => { this.props.history.push('/misOrdenes') }}
             />
+            </section>
             </div>
+            </section>
         )
       }
 }

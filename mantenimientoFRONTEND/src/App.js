@@ -12,7 +12,7 @@ import Login from './Components/Pages/Public/Login/Login';
 import Sigin from './Components/Pages/Public/Signin/Sigin';
 import Dashboard from  './Components/Pages/Private/Dashboard/Dashboard';
 import Edificios  from './Components/Pages/Private/Backlog/Backlog';
-import Venta  from './Components/Pages/Public/ProductosDisponibles/products';
+import EdificiosSolicitud  from './Components/Pages/Public/ProductosDisponibles/edificios';
 import Orden  from './Components/Pages/Public/ProductosDisponibles/orden';
 import BacklogAdd from './Components/Pages/Private/Backlog/BacklogAdd';
 import DetailAdd from './Components/Pages/Private/Detail/DetailAdd';
@@ -75,8 +75,8 @@ class App extends Component {
           >
               <Route path="/" exact render={(props) => (<Home {...props} auth={this.state.auth} setUnAuth={this.setUnAuth} />)} />
               <Route path="/login" render={ (props)=>(<Login {...props} auth={this.state.auth} setAuth={this.setAuth} />) } />
-              <Route path="/venta" component={Venta}/>
-              <Route path="/orden/:id/:desc/:prec/:cate/:peso" component={Orden}/>
+              <Route path="/edificiosSolicitud" component={EdificiosSolicitud}/>
+              <Route path="/ordenar/:id/:idEdificio/:nombreEdificio/:pisosEdificio/:bannosEdificio/:aulasEdificio/:oficinasEdificio" component={Orden}/>
               <PrivateRoute path="/signin"  auth={this.state.auth} component={Sigin} />
               <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard} />
               <Route path="/backlog" component={Edificios} />

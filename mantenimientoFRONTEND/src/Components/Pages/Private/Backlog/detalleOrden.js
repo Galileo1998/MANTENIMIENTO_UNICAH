@@ -3,6 +3,7 @@ import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
 import { paxios } from '../../../../Utilities';
 import './detalleOrden.css';
+import TextArea from '../../../Common/TextArea/TextArea';
 
 
 export default class DetalleOrden extends Component {
@@ -68,31 +69,45 @@ export default class DetalleOrden extends Component {
     console.log(this.state);
     return (
       <section className="inicio" >
+        <center>
         <h1>Orden con Id: {this.props.match.params.id}</h1>
         <section className="main fix640 " >
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
-          <div className="thingItem" >
+          <div  >
               <span>Nombre: {this.state.nombre}</span>
+              <br></br>
               <span>Identidad: {this.state.identidad}</span>
-              <span>Email: {this.state.correoElectronico}</span>
-              <span>Dirección: {this.state.direccion}</span>
-              <span>Teléfono: {this.state.telefono}</span>
+              <br></br>
+              <span>Elemento reportado: {this.state.elementoReportar}</span>
+              <br></br>
+              <span>Descripción: {this.state.descripcionReportar}</span>
+              <br></br>
               
         </div>
         <div style={{width:50}}></div>
-        <span>Ordeno:</span>
+        <span>Edificio o espacio a dar mantenimiento:</span>
           <div className="thingItem">
-              <span>{this.state.idProducto}</span>
-              <span>{this.state.descripcion}</span>
-              <span>L. {this.state.precio}</span>
-              <span>Kg. {this.state.peso}</span>
-              <span>Categoria: {this.state.categoria}</span>
-            </div>
+              <span>Identificador: {this.state.idEdificio}</span>
+              <span>Edificio: {this.state.nombreEdificio}</span>
+              <br></br>
+              <span>Pisos: {this.state.pisosEdificio}</span>
+              <span>Aulas: {this.state.aulasEdificio}</span>
+              <br></br>
+              <span>Baños: {this.state.bannosEdificio}</span>
+              <span>Oficinas: {this.state.oficinasEdificio}</span>
+          </div>
+          <TextArea
+                caption="Observaciones (Jefe de mantenimiento)"
+                value={this.state.descripcionReportar}
+                name="descripcionReportar"
+                onChange={this.onChangeHandler}
+                maxLenght="300"
+          />
           <section className="action">
             <Button
               caption="Confirmar Orden"
               onClick={this.onSaveBtnClick}
-              customClass="primary"
+              customClass="secondary"
             />
             <div style={{width:50}}></div>
             <Button
@@ -102,6 +117,7 @@ export default class DetalleOrden extends Component {
             />
           </section>
         </section>
+        </center>
       </section>
     );
   }
