@@ -4,10 +4,12 @@
 import React, { Component } from 'react';
 import Button from '../../../Common/Btns/Buttons';
 import Campo from '../../../Common/Campo/Campo';
-import TextArea from '../../../Common/TextArea/TextArea'
+import TextArea from '../../../Common/TextArea/TextArea';
+import ImageReport from '../../../Common/Image/ImageReport';
 import ScrollArea from 'react-scrollbar';
 import {Link} from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
+import { MdThumbsUpDown } from 'react-icons/md';
 
 /*
   module.exports = class Login .....
@@ -37,6 +39,7 @@ export default class Orden extends Component {
       fechaDia: giorno,
       fechaMes: messe,
       fechaAnno: anno,
+      imagenReporte: '',
       error: false,
       isLoading: false,
     };
@@ -47,6 +50,7 @@ export default class Orden extends Component {
   }
 
   onClickHandler(e){
+
   
     this.setState({isLoading:true});
     naxios.post(
@@ -67,6 +71,7 @@ export default class Orden extends Component {
           fechaDia: this.state.fechaDia,
           fechaMes: this.state.fechaMes,
           fechaAnno: this.state.fechaAnno,
+          imagenReporte: this.state.imagenReporte
         }
       ).then(
         ({data})=>{
@@ -89,6 +94,19 @@ export default class Orden extends Component {
       let { name, value } = e.currentTarget;
     }
 
+    onChangeImage(e)
+    {
+      let files = e.target.files;
+      let reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.onload =(e)=>
+      {
+        console.warn("img data", e.target.result);
+        this.state.imagenReporte=e.target.result;
+      }
+
+    }
+
 
 
   render() {
@@ -96,17 +114,12 @@ export default class Orden extends Component {
     return (
 
       <section>
+        <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
+        <br></br>
         <h1>Solicitar mantenimiento</h1>
-              <ScrollArea
-                speed = {0.8}
-                className = "area"
-                contentClassName = "content"
-                vertical = {true}
-                horizontal = {false}
-              >
           <section className="main fix640">
-
+          
               <b>Edificio gestionado: {this.props.match.params.nombreEdificio}, Pisos: {this.props.match.params.pisosEdificio}, Aulas: {this.props.match.params.aulasEdificio}, Oficinas: {this.props.match.params.oficinasEdificio}, Baños: {this.props.match.params.bannosEdificio}</b>
 
               <Campo
@@ -115,7 +128,7 @@ export default class Orden extends Component {
                 name="nombre"
                 onChange={this.onChangeHandler}
               />
-            <Campo
+              <Campo
                 caption="Identidad"
                 value={this.state.identidad}
                 name="identidad"
@@ -135,7 +148,12 @@ export default class Orden extends Component {
                 maxLenght="300"
               />
 
-
+              <input 
+                type="file"
+                name="imagenReporte"
+                onChange={(e)=>this.onChangeImage(e)}
+              />
+          
               {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
               <section className="action">
                 <Button
@@ -149,12 +167,12 @@ export default class Orden extends Component {
                   customClass="secondary"
                   onClick={(e) => { this.props.history.goBack() }}
                 />
-
+            
               </section>
-
+              
         </section>
-         </ScrollArea>
          </center>
+         </div>
       </section>
 
     );

@@ -61,8 +61,10 @@ export default class DetalleOrden extends Component {
     console.log(this.state);
     return (
       <section className="inicio" >
+        <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
         <h1>Reporte : {this.props.match.params.id}</h1>
+
         <section className="main fix640 " >
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <div  >
@@ -87,7 +89,17 @@ export default class DetalleOrden extends Component {
               <br></br>
               <span>Baños: {this.state.bannosEdificio}</span>
               <span>Oficinas: {this.state.oficinasEdificio}</span>
+              <br></br>
+
           </div>
+          <br></br>
+          <div className="thingItem">
+          <span>Evidencia gráfica de daño: </span>
+          <br></br>
+          <br></br>
+          <img src={this.state.imagenReporte} style={{width: "50%", height: "40%px"}}/>
+          </div>
+          <br></br>
           <TextArea
                 caption="Observaciones (Jefe de mantenimiento)"
                 value={this.state.observacion}
@@ -110,7 +122,9 @@ export default class DetalleOrden extends Component {
             />
           </section>
         </section>
+
         </center>
+        </div>
       </section>
     );
   }

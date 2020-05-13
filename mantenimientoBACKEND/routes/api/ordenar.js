@@ -29,6 +29,7 @@ var thingsStruct = {
     "fechaDia": 0,
     "fechaMes": 0,
     "fechaAnno": 0,
+    "imagenReporte": '',
     "dd":'NA',
     "type":""
   };
