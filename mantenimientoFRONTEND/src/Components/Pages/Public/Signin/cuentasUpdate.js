@@ -30,7 +30,7 @@ export default class DetailUpdate extends Component {
       checked: event.target.checked
   })
 
-   componentDidMount(){
+   componentDidMount(){ 
     const { match: {params}} = this.props;
     const uri = `/api/security/${params.id}`;
     paxios.get(uri)

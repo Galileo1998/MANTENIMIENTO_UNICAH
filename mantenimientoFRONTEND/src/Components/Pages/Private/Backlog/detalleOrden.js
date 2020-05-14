@@ -5,6 +5,8 @@ import { paxios } from '../../../../Utilities';
 import './detalleOrden.css';
 import TextArea from '../../../Common/TextArea/TextArea';
 import {Link} from 'react-router-dom';
+import { MdThumbsUpDown } from 'react-icons/md';
+const fs = require('fs');
 
 export default class DetalleOrden extends Component {
     constructor(){
@@ -18,6 +20,8 @@ export default class DetalleOrden extends Component {
         this.onSaveBtnClick = this.onSaveBtnClick.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
       }
+
+      
 
       componentDidMount(){
         this.setState({isLoading:true});
@@ -35,6 +39,7 @@ export default class DetalleOrden extends Component {
             console.log(err);
           }
         );
+
       }
     
 
@@ -59,6 +64,7 @@ export default class DetalleOrden extends Component {
   }
 
   render() {
+
     console.log(this.state);
     return (
       <section className="inicio" >
@@ -112,7 +118,7 @@ export default class DetalleOrden extends Component {
                 onChange={this.onChangeHandler}
                 maxLenght="300"
           />
-          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}`}>Imprimir Reporte</Link>
+          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}`}>Imprimir Reporte</Link>
           <section className="action">
             <Button
               caption="Confirmar"

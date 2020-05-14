@@ -26,7 +26,7 @@ export default class Orden extends Component {
     var giorno = time.getDate();
     var messe = parseInt(time.getMonth())+1;
     var anno = time.getFullYear();
-    var diaDeLaSolicitud = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+', Fecha:'+giorno+'/'+messe+'/'+anno;
+    var diaDeLaSolicitud = time.getHours()+':'+time.getMinutes()+':'+time.getSeconds()+', '+giorno+'/'+messe+'/'+anno;
     this.state = {
       nombre:'',
       identidad: '',

@@ -1,6 +1,6 @@
 import React from 'react';
 import MyHeader from './MyHeader';
-import MyFooter from './MyFooter';
+import MyFooter from './MyFooter.js';
 import './Page.css'
 const Page = ({ showHeader = true, headerTitle = "Simple Store Inventory", showFooter=true, children})=>{
   let header = null;

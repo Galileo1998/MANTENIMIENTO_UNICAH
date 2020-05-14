@@ -83,7 +83,7 @@ class App extends Component {
               <PrivateRoute path="/signin"  auth={this.state.auth} component={Sigin} />
               <PrivateRoute path="/main" auth={this.state.auth} component={Dashboard} />
               <Route path="/backlog" component={Edificios} />
-              <PrivateRoute path="/reporte/:id/:idEdificio/:nombreEdificio/:pisosEdificio/:bannosEdificio/:aulasEdificio/:oficinasEdificio/:observacion" auth={this.state.auth}  component={Reportes}/>
+              <PrivateRoute path="/reporte/:id/:idEdificio/:nombreEdificio/:pisosEdificio/:bannosEdificio/:aulasEdificio/:oficinasEdificio/:observacion/:elementoReporte/:descripcionReporte/:nombre/:identidad/:dia/:mes/:anno" auth={this.state.auth}  component={Reportes}/>
               <PrivateRoute path="/backlogadd/:type/:dd" auth={this.state.auth} component={BacklogAdd} />
               <PrivateRoute path="/detailadd" auth={this.state.auth} component={DetailAdd} />
               <PrivateRoute path="/detailupdate/:id" auth={this.state.auth} component={DetailUpdate} />
