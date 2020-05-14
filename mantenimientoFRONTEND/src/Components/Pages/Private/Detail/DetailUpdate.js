@@ -60,8 +60,8 @@ export default class DetailUpdate extends Component {
     return (
       <section className="inicio">
         <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
-        <section>
         <h1>ACTUALIZAR EDIFICIO O ESPACIO: {this.props.match.params.id}</h1>
+        
         <center>
         <section className="main fix640">
         <Campo
@@ -103,7 +103,7 @@ export default class DetailUpdate extends Component {
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <section className="action">
             <Button
-              caption="Actualizar producto"
+              caption="Actualizar"
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />
@@ -113,10 +113,11 @@ export default class DetailUpdate extends Component {
               customClass="secondary"
               onClick={(e) => { this.props.history.push('/backlog') }}
             />
+            <div class="space"></div>
           </section>
         </section>
         </center>
-        </section>
+
         </div>
       </section>
     );

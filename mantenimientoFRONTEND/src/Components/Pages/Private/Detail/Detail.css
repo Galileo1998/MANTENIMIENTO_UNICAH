@@ -1,3 +1,4 @@
+
 .inicio{
    align-content: center;
    align-items: center;
@@ -13,4 +14,30 @@ h1{
     border-radius: 100px !important;
     color: white;
     font-weight: normal;
+}
+
+@media (max-width: 657px)
+{
+
+    .inicio{
+        align-content: center;
+        align-items: center;
+        height: 100%;
+     }
+
+     h1{
+         background-color:  rgb(227, 232, 235);
+         opacity: .87;
+
+         justify-content: center !important;
+         text-align: center;
+     }
+     
+     .btnsuccess{
+         background-color: #002a80;
+         border-radius: 100px !important;
+         color: white;
+         font-weight: normal;
+
+     }
 }

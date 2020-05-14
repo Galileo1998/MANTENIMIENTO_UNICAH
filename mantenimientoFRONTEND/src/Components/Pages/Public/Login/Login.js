@@ -57,9 +57,10 @@ export default class Login extends Component{
       );
     }
     return (
-    
+      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
       <section className="">
         <center>
+          <br></br>
         <div className="fix640">
           <h1>Iniciar Sesión</h1>
         </div>
@@ -90,6 +91,7 @@ export default class Login extends Component{
         </section>
         </center>
       </section>
+      </div>
     );
   }
 }

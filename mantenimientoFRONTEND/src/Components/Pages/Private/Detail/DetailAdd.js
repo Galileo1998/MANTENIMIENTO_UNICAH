@@ -108,7 +108,7 @@ export default class DetailAdd extends Component {
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <section className="action">
             <Button
-              caption="Crear Edificio o espacio"
+              caption="Crear"
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />

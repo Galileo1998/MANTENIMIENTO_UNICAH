@@ -10,7 +10,8 @@ import ScrollArea from 'react-scrollbar';
 import {Link} from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
 import { MdThumbsUpDown } from 'react-icons/md';
-import '../ProductosDisponibles/products.css'
+import '../ProductosDisponibles/css/component.css'
+import { IoIosCheckmark} from 'react-icons/io';
 /*
   module.exports = class Login .....
 */
@@ -44,6 +45,7 @@ export default class Orden extends Component {
       fechaAnno: anno,
       imagenReporte: '',
       error: false,
+      cargarImagen: 'No se ha cargado una imagen',
       isLoading: false,
     };
     //Para el autobinding
@@ -105,6 +107,8 @@ export default class Orden extends Component {
       {
         console.warn("img data", e.target.result);
         this.state.imagenReporte=e.target.result;
+        this.state.cargarImagen = "Imagen cargada";
+        this.setState({"cargarImagen": "Imagen cargada"});
       }
 
     }
@@ -155,14 +159,14 @@ export default class Orden extends Component {
                 type="file"
                 name="imagenReporte"
                 onChange={(e)=>this.onChangeImage(e)}
-                multiple accept='image/*'
-                class="inputfile"
-                id="file"
+                accept='image/*'
+                id="file-2" 
+                class="inputfile inputfile-2"
               />
               <br></br><br></br>
-              <label  for = "file" className="secondary"> Subir imagen </label>
-          
-              {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
+              {(this.state.error && true)?(<div className="error">{this.state.error}</div>):null}
+              <label for="file-2"><svg width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Subir imagen&nbsp;&hellip;</label>
+              {(this.state.cargarImagen && true) ? (<div className="imagenMensaje">{this.state.cargarImagen}</div>) : null}
               <section className="action">
                 <Button
                   caption="Enviar"

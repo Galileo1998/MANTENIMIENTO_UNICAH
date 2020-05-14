@@ -96,7 +96,9 @@ export default class DetailUpdate extends Component {
     return (
         
       <section>
+         <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
+        <br></br>
         <h1>Usuario: {this.props.match.params.id}</h1>
         <section className="main fix640">
           <Campo
@@ -137,6 +139,7 @@ export default class DetailUpdate extends Component {
           </section>
         </section>
         </center>
+        </div>
       </section>
     );
   }

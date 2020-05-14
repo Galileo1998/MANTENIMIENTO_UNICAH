@@ -49,7 +49,9 @@ export default class Venta extends Component
       render() {
         console.log(this.state);
         return (
+
           <section className="inicio">
+            <br></br><br></br>
             <div>
             <section className="action">
             <Button
@@ -57,7 +59,7 @@ export default class Venta extends Component
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />
-            <br></br>
+            <br></br><br></br>&nbsp;&nbsp;
             <Button
               caption="Cancelar"
               customClass="secondary"

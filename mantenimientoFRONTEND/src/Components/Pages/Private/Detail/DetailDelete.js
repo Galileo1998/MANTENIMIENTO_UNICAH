@@ -104,7 +104,7 @@ export default class DetailDelete extends Component {
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <section className="action">
             <Button
-              caption="Eliminar edificio o espacio"
+              caption="Eliminar"
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />

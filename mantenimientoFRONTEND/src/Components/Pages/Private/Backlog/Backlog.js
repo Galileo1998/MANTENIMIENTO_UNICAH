@@ -96,16 +96,13 @@ export default class Backlog extends Component {
 
   return (
     <section className="inicio">
-
+      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
       <h1>
         Edificios y Espacios
         <span className="addThing">
-          <Link to="/detailadd">
-            <IoMdAddCircle size="1.5em" />
-          </Link>
         </span>
       </h1>
-      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
+
           <Link to="/detailadd"><IoMdAddCircle size="2.5em" /></Link>
           <InfiniteScroll
             pageStart={0}

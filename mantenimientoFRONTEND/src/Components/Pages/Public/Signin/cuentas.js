@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import '../../Private/Backlog/Backlog.css';
+import './Sigin.css';
 import { IoIosSync, IoMdAddCircle, IoIosRemove, IoIosSettings } from 'react-icons/io';
 import { naxios } from '../../../../Utilities';
 
@@ -41,6 +42,7 @@ class List extends Component{
     const items = this.state.things.map(
         (thing)=>{
           return (
+            <section classname="backlog">
             <div className="thingItem" key={thing._id}>
               <span>Id: {thing._id}</span>
               <span>Email: {thing.email}</span>
@@ -56,17 +58,21 @@ class List extends Component{
              </span>
               <span className="updateThing" onClick={()=>{this.handleClick(thing._id);}}>
               </span>
-            </div>);
+            </div>
+            </section>);
         }
       );
     return (
+      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
+      <br></br>
       <div className="listHolder">
-      <h1>Cuentas Ari Rescue</h1>
+      <h1>Cuentas Mantenimiento Unicah</h1>
       <h2>Cantidad de Cuentas: {this.state.things.length}</h2>
       <div>
         {items}
       </div>
       { (this.state.isLoading)? "...Cargando": null }
+      </div>
       </div>
     )
   }

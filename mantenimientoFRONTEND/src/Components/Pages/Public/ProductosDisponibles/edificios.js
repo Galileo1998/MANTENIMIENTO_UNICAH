@@ -52,7 +52,9 @@ class List extends Component{
         }
       );
     return (
+      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
       <div className="listHolder">
+        <br></br>
         <div className="inicio"><h1>Edificios y espacios (Generar solicitud de mantenimiento)</h1></div>
       <div className="cantidades">
       <h2>Cantidad de Edificios o espacios: {this.state.things.length}</h2>
@@ -61,6 +63,7 @@ class List extends Component{
         {items}
       </div>
       { (this.state.isLoading)? "...Cargando": null }
+      </div>
       </div>
     )
   }

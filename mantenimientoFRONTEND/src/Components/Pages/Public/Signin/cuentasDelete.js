@@ -42,7 +42,9 @@ export default class DetailDelete extends Component {
     console.log(this.state);
     return (
       <section>
+         <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
+        <br></br>
         <h1>Usuario: {this.props.match.params.id}</h1>
         <section className="main fix640">
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
@@ -61,6 +63,7 @@ export default class DetailDelete extends Component {
           </section>
         </section>
         </center>
+        </div>
       </section>
     );
   }

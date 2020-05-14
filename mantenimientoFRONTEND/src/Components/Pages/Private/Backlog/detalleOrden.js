@@ -70,18 +70,21 @@ export default class DetalleOrden extends Component {
         <section className="main fix640 " >
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <div  >
-              <span>Nombre: {this.state.nombre}</span>
+              <span><span style={{fontStyle: 'italic', fontWeight: '600'}}>Nombre:</span> {this.state.nombre}</span>
               <br></br>
-              <span>Identidad: {this.state.identidad}</span>
+              <span><span style={{fontStyle: 'italic', fontWeight: '600'}}>Identidad:</span> {this.state.identidad}</span>
               <br></br>
-              <span>Elemento reportado: {this.state.elementoReportar}</span>
+              <span><span style={{fontStyle: 'italic', fontWeight: '600'}}>Elemento reportado:</span> {this.state.elementoReportar}</span>
               <br></br>
-              <span>Descripción: {this.state.descripcionReportar}</span>
+              <span><span style={{fontStyle: 'italic', fontWeight: '600'}}>Descripción:</span> {this.state.descripcionReportar}</span>
+              <br></br>
+              <span><span style={{fontStyle: 'italic', fontWeight: '600'}}>Fecha solicitud:</span> {this.state.fechaSolicitud}</span>
               <br></br>
               
         </div>
         <div style={{width:50}}></div>
-        <span>Edificio o espacio a dar mantenimiento:</span>
+        <br></br>
+        <span style={{fontStyle: 'italic', fontWeight: '600'}}>Edificio o espacio a dar mantenimiento:</span>
           <div className="thingItem">
               <span>Identificador: {this.state.idEdificio}</span>
               <span>Edificio: {this.state.nombreEdificio}</span>
@@ -112,7 +115,7 @@ export default class DetalleOrden extends Component {
           <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}`}>Imprimir Reporte</Link>
           <section className="action">
             <Button
-              caption="Confirmar Solicitud"
+              caption="Confirmar"
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />

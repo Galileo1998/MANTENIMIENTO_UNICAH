@@ -52,6 +52,7 @@ export default class Signin extends Component{
   render(){
     return (
       <section className="inicio">
+         <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
         <div className="fix640">
           <h1>Crear Cuenta</h1>
@@ -89,6 +90,7 @@ export default class Signin extends Component{
         
         </section>
         </center>
+        </div>
       </section>
 
     );
