@@ -3,7 +3,7 @@ import './Campo.css';
 export default ( { caption , type, value, name , onChange, ...props } )=>{
   return (
     <fieldset>
-      <legend>{caption}</legend>
+      <legend class="texto">{caption}</legend>
       <input
         type={type||"text"}
         value={value||""}

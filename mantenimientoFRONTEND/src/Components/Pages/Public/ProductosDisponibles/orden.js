@@ -10,6 +10,7 @@ import ScrollArea from 'react-scrollbar';
 import {Link} from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
 import { MdThumbsUpDown } from 'react-icons/md';
+import '../ProductosDisponibles/products.css'
 /*
   module.exports = class Login .....
 */
@@ -148,13 +149,18 @@ export default class Orden extends Component {
                 onChange={this.onChangeHandler}
                 maxLenght="300"
               />
-
+              <span style={{fontStyle: 'italic', fontWeight: '500'}}>Cargue una fotografía como evidencia: </span>
+          
               <input 
                 type="file"
                 name="imagenReporte"
                 onChange={(e)=>this.onChangeImage(e)}
                 multiple accept='image/*'
+                class="inputfile"
+                id="file"
               />
+              <br></br><br></br>
+              <label  for = "file" className="secondary"> Subir imagen </label>
           
               {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
               <section className="action">

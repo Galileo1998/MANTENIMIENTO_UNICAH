@@ -38,7 +38,7 @@ nav a {
 
 nav a:hover{
   background-color: #b0ebf3;
-  color:#fff;
+  color:rgb(19, 18, 18);
 }
 
 @media (max-width: 657px)

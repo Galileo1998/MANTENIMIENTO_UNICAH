@@ -7,6 +7,12 @@ fieldset{
 legend{
   font-size: 1em;
 }
+
+legend.texto
+{
+  font-weight: 500;
+  font-style: 'italic';
+}
 textarea{
   display: flex;
   box-sizing: border-box;
