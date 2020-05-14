@@ -8,6 +8,7 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.4.1",
     "image-compressor": "^2.0.3",
+    "json-loader": "^0.5.7",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.8.6",
