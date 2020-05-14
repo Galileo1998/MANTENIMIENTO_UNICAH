@@ -10,10 +10,12 @@ import ScrollArea from 'react-scrollbar';
 import {Link} from 'react-router-dom';
 import { naxios } from '../../../../Utilities';
 import { MdThumbsUpDown } from 'react-icons/md';
-
 /*
   module.exports = class Login .....
 */
+
+
+
 export default class Orden extends Component {
   constructor() {
     super();
@@ -85,7 +87,6 @@ export default class Orden extends Component {
         }
       );
   }
-
   onChangeHandler(e){
     let {name, value} = e.currentTarget;
     this.setState({[name]:value});
@@ -121,7 +122,7 @@ export default class Orden extends Component {
           <section className="main fix640">
           
               <b>Edificio gestionado: {this.props.match.params.nombreEdificio}, Pisos: {this.props.match.params.pisosEdificio}, Aulas: {this.props.match.params.aulasEdificio}, Oficinas: {this.props.match.params.oficinasEdificio}, Baños: {this.props.match.params.bannosEdificio}</b>
-
+ 
               <Campo
                 caption="Nombre"
                 value={this.state.nombre}
@@ -152,6 +153,7 @@ export default class Orden extends Component {
                 type="file"
                 name="imagenReporte"
                 onChange={(e)=>this.onChangeImage(e)}
+                multiple accept='image/*'
               />
           
               {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
