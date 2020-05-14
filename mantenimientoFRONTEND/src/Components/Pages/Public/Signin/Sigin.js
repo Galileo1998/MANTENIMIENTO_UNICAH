@@ -51,7 +51,6 @@ export default class Signin extends Component{
 
   render(){
     return (
-      
       <section className="inicio">
         <center>
         <div className="fix640">
@@ -79,8 +78,7 @@ export default class Signin extends Component{
                 onClick={this.onSiginBtnClick}
                 customClass="btnsuccess"
               />
-              
-
+              &nbsp;&nbsp;&nbsp;
               <Button
                 to='/cuentas'
                 caption="Cuentas"
@@ -92,6 +90,7 @@ export default class Signin extends Component{
         </section>
         </center>
       </section>
+
     );
   }
 }

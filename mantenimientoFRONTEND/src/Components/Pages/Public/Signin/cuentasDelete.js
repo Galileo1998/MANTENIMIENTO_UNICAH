@@ -42,16 +42,17 @@ export default class DetailDelete extends Component {
     console.log(this.state);
     return (
       <section>
-        <h1>{this.props.match.params.id}</h1>
+        <center>
+        <h1>Usuario: {this.props.match.params.id}</h1>
         <section className="main fix640">
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
           <section className="action">
             <Button
-              caption="Eliminar producto"
+              caption="Eliminar cuenta"
               onClick={this.onSaveBtnClick}
-              customClass="primary"
+              customClass="secondary"
             />
-            <br></br>
+            <br></br>&nbsp;&nbsp;&nbsp;
             <Button
               caption="Cancelar"
               customClass="secondary"
@@ -59,6 +60,7 @@ export default class DetailDelete extends Component {
             />
           </section>
         </section>
+        </center>
       </section>
     );
   }

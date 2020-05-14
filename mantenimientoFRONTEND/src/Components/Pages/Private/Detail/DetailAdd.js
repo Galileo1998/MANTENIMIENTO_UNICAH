@@ -112,7 +112,7 @@ export default class DetailAdd extends Component {
               onClick={this.onSaveBtnClick}
               customClass="secondary"
             />
-            <br></br>
+            <br></br>&nbsp;&nbsp;&nbsp;
             <Button
               caption="Cancelar"
               customClass="secondary"
