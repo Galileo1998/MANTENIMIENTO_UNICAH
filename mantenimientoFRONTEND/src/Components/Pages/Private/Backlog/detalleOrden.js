@@ -64,6 +64,7 @@ export default class DetalleOrden extends Component {
       <section className="inicio" >
         <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
+        <div class="space"></div>
         <h1>Reporte : {this.props.match.params.id}</h1>
 
         <section className="main fix640 " >
