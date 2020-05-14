@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import './Backlog.css';
+import './MisOrdenes.css';
 import { IoIosDocument, IoIosRemove} from 'react-icons/io';
 import { naxios } from '../../../../Utilities';
 
@@ -54,17 +54,19 @@ class List extends Component{
         }
       );
     return (
-      <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
-      <div className="listHolder">
-        <br></br>
-      <h1>Solicitudes realizadas</h1>
-      <h2>Cantidad de Ordenes: {this.state.things.length}</h2>
-      <div>
-        {items}
-      </div>
-      { (this.state.isLoading)? "...Cargando": null }
-      </div>
-      </div>
+      <section className="backlogs">
+        <div style = {{backgroundColor: '#fff', height: "100%", padding: '0', margin: '0', opacity: '0.85'}}className="" ref={(ref)=> this.scrollParentRef = ref}>
+          <div className="listHolder">
+            <br></br>
+          <h1>Solicitudes realizadas</h1>
+          <h2>Cantidad de Ordenes: {this.state.things.length}</h2>
+          <div>
+            {items}
+          </div>
+          { (this.state.isLoading)? "...Cargando": null }
+          </div>
+        </div>
+      </section>
     )
   }
 }

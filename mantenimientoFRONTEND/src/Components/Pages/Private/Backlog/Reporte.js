@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         flexGrow: 1
     },
     viewer: {
+
         width: '100%',
         height: '100%',
         marginTop: '65px'
@@ -49,7 +50,6 @@ const styles = StyleSheet.create({
 export default class Reporte extends Component {
   render() {
     return (
-
         <PDFViewer style={styles.viewer}>
             <Document>
             <Page size="Letter" style={styles.page}>

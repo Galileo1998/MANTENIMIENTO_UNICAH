@@ -1,8 +1,8 @@
 footer {
   margin: 0px;
   padding: 0px;
-  background-color: #000;
-  color: #fff;
+  background-color: #002a80;
+  opacity: 0.87;
 }
 footer nav ul {
   width: 100%;
@@ -22,7 +22,7 @@ footer nav ul li a {
   flex:1;
   text-align: center;
   transition: background-color 0.5s ease, color 0.5s ease;
-  background-color: #000;
+  background-color: #002a80;
   color: #FFF;
   text-decoration: none;
 }

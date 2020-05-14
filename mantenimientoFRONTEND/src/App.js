@@ -6,6 +6,7 @@ import { pageTransitions as transition, mapGlideStyles as mapStyles } from './Tr
 import PrivateRoute from './PrivateRoute';
 
 import NavBar from './Components/Common/NavBar/NavBar';
+import Footer from './Components/utilities/MyFooter';
 import Home from './Components/Pages/Public/Home/Home';
 import Login from './Components/Pages/Public/Login/Login';
 
@@ -69,6 +70,7 @@ class App extends Component {
       <Router>
         <section className="container">
         <NavBar auth={this.state.auth} />
+        
           <AnimatedSwitch
             {... transition}
             mapStyles={mapStyles}
@@ -95,6 +97,7 @@ class App extends Component {
           </AnimatedSwitch>
 
         </section>
+        <Footer />
       </Router>
     );
   }

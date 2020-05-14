@@ -2,7 +2,12 @@
     margin-top: 60px;
     align-content: center;
     align-items: center;
-  }
+
+    background-Color: '#fff';
+    height: "100%";
+    padding: '0';
+    margin: '0';
+    opacity: '0.85'  }
 
   @media (max-width: 657px)
   {

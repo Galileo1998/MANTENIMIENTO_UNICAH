@@ -64,7 +64,7 @@ class List extends Component{
       );
     return (
       <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
-      <br></br>
+      <br></br><br></br>
       <div className="listHolder">
       <h1>Cuentas Mantenimiento Unicah</h1>
       <h2>Cantidad de Cuentas: {this.state.things.length}</h2>

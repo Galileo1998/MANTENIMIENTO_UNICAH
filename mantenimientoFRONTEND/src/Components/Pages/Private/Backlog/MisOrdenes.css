@@ -1,0 +1,115 @@
+.backlog {
+    height: 100%;
+    padding: 0px;
+    overflow: auto;
+    margin-top: -1rem;
+    background-color:#fff;
+    opacity: .85;
+    z-index: -2;
+  }
+  .backlogs {
+    height: 100%;
+    padding: 0px;
+    overflow: auto;
+    background-color:#fff;
+    opacity: .85;
+    z-index: -2;
+  }
+  .thingItem {
+    display: flex;
+    box-sizing: 1px;
+    padding: 1rem;
+    color: black;
+    opacity: 0.99;
+    font-weight: 600;
+    border-bottom: 1px solid #002a80;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .thingItem span:first-child {
+    padding-right: 1.5rem;
+  }
+  .center {
+    justify-content: center;
+  }
+  .addThing a {
+    color: #fff;
+  }
+  .updateThing a {
+    color: rgb(8, 143, 20);
+  }
+  
+  
+  .inicio{
+    margin-top: 70px;
+    align-content: center;
+    align-items: center;
+  }
+  
+  h1{
+     justify-content: center !important;
+  }
+  
+  .btnsuccess{
+     background-color: #002a80;
+     border-radius: 100px !important;
+     color: white;
+     font-weight: normal;
+  }
+  
+  body{
+    background-color: blanchedalmond;
+  }
+  
+  @media (max-width: 657px)
+  {
+    .thingItem {
+      display: flex;
+      box-sizing: 1px;
+      padding: 1rem;
+      color: black;
+      opacity: 0.99;
+      font-weight: 600;
+      border-bottom: 1px solid #002a80;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .thingItem span:first-child {
+      padding-right: 1.5rem;
+    }
+    .center {
+      justify-content: center;
+    }
+    .addThing a {
+      color: #fff;
+    }
+    .updateThing a {
+      color: rgb(8, 143, 20);
+    }
+    
+    
+    .inicio{
+      margin-top: 70px;
+      align-content: center;
+      align-items: center;
+    }
+    
+    h1{
+       justify-content: center !important;
+       margin-top: 130px;
+    }
+    
+    .btnsuccess{
+       background-color: #002a80;
+       border-radius: 100px !important;
+       color: white;
+       font-weight: normal;
+    }
+    
+    body{
+      background-color: blanchedalmond;
+    }
+    
+  }

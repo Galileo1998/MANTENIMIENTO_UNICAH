@@ -1,21 +1,18 @@
 .home {
   box-sizing: border-box;
-  background-color: #b0ebf3;
   background-size: cover;
-  background-image: url('./fondo.jpg');
-  background-repeat: repeat;
   background-size: 100%;
   height: 100%;
   color: white;
   text-shadow: black 0.2em 0.1em 0.2em;
   font-size: 1.4em;
-  padding: 0em;
-  margin: 0em;
   display: flex;
-  min-height: calc(100vh - 50px);
   justify-content: center;
   align-items: center;
   width: 100%;
+  background-color: white !important;
+  background-image: url('./fondo.jpg');
+
 }
 
 .btnout{

@@ -1,10 +1,19 @@
 .backlog {
-  height: calc(100vh - 123px);
+  height: 100%;
   padding: 0px;
   overflow: auto;
   margin-top: -1rem;
-  background-color: rgb(227, 232, 235);
+  background-color:#fff;
   opacity: .85;
+  z-index: -2;
+}
+.backlogs {
+  height: 100%;
+  padding: 0px;
+  overflow: auto;
+  background-color:#fff;
+  opacity: .85;
+  z-index: -2;
 }
 .thingItem {
   display: flex;

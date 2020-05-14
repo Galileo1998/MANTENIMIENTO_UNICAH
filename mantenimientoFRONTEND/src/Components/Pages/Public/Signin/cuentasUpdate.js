@@ -98,7 +98,7 @@ export default class DetailUpdate extends Component {
       <section>
          <div className="backlog" ref={(ref)=> this.scrollParentRef = ref}>
         <center>
-        <br></br>
+        <br></br><br></br>
         <h1>Usuario: {this.props.match.params.id}</h1>
         <section className="main fix640">
           <Campo

@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, StyleSheet} from 'react';
 import Button from '../../../Common/Btns/Buttons';
 import './Home.css';
 import { IoIosLogOut } from 'react-icons/io';
+import NavBar from '../../../Common/NavBar/NavBar';
 
 export default class Home extends Component{
   render() {
@@ -12,7 +13,11 @@ export default class Home extends Component{
             <div className="btnout">
             {(this.props.auth.logged) ? (<center><div className="half"><Button customClass="fond" onClick={(e) => { this.props.setUnAuth(false)}}><IoIosLogOut/>&nbsp;Cerrar Sesión</Button></div></center>):null}
             </div>
+  
+           
+      
         </div>
+
     );
   }
 
