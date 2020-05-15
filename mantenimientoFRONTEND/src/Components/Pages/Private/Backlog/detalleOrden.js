@@ -6,7 +6,7 @@ import './detalleOrden.css';
 import TextArea from '../../../Common/TextArea/TextArea';
 import {Link} from 'react-router-dom';
 import { MdThumbsUpDown } from 'react-icons/md';
-const fs = require('fs');
+const FileDownload = require('js-file-download');
 
 export default class DetalleOrden extends Component {
     constructor(){
@@ -40,6 +40,7 @@ export default class DetalleOrden extends Component {
           }
         );
 
+
       }
     
 
@@ -60,11 +61,10 @@ export default class DetalleOrden extends Component {
         console.log(error);
         this.setState({ error: "Error al actualizar solicitud" });
       })
-
+      
   }
 
   render() {
-
     console.log(this.state);
     return (
       <section className="inicio" >
@@ -108,7 +108,7 @@ export default class DetalleOrden extends Component {
           <span>Evidencia gráfica de daño: </span>
           <br></br>
           <br></br>
-          <img src={this.state.imagenReporte} style={{width: "50%", height: "40%px"}}/>
+          <img name="imagenReport" value={this.state.imagenReport} src={this.state.imagenReporte} style={{width: "50%", height: "40%"}}/>
           </div>
           <br></br>
           <TextArea
@@ -118,7 +118,7 @@ export default class DetalleOrden extends Component {
                 onChange={this.onChangeHandler}
                 maxLenght="300"
           />
-          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}`}>Imprimir Reporte</Link>
+          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`}>Imprimir Reporte</Link>
           <section className="action">
             <Button
               caption="Confirmar"

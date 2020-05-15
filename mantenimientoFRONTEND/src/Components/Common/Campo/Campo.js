@@ -9,6 +9,7 @@ export default ( { caption , type, value, name , onChange, ...props } )=>{
         value={value||""}
         name={name}
         onChange={(onChange||function(){})}
+        required
       />
     </fieldset>
   );

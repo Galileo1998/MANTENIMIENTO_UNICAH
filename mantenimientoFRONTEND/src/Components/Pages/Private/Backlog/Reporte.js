@@ -5,7 +5,12 @@ import { paxios } from '../../../../Utilities';
 import './detalleOrden.css';
 import Informacion from '../../Private/Backlog/detalleOrden';
 import TextArea from '../../../Common/TextArea/TextArea';
-import {Page, Text, View, Document, StyleSheet, PDFViewer, Image} from '@react-pdf/renderer';
+import {Page, Text, View, Document, StyleSheet, PDFViewer, Image, BlobProvider} from '@react-pdf/renderer';
+import { MdThumbsUpDown } from 'react-icons/md';
+import styled from 'styled-components';
+import myimage from '../../Private/Backlog/LOGO3.png';
+
+const POSTER_PATH= ''; 
 
 const styles = StyleSheet.create({
     page: {
@@ -93,30 +98,35 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 70,
     fontSize: 12
+   },
+   images: {
+    marginVertical: 15,
+    marginHorizontal: 100,
+    width: '50px',
+    height: '60px',
+    alignSelf: 'center'
    }
 });
 
-
-export default class Reporte extends Component {
+export default class Reporte extends React.Component {
  
-    constructor() {
+    constructor(){
         super();
-        //definición del estado inicial
         this.state = {
-          imagenReporte: '',
-        };
-    
-    
+          things:[],
+          isLoading: false,
+          error: false,
+          imagenn: '',
+        }
 
-        this.handleCheckBoxChange = this.handleCheckBoxChange.bind(this);
+        this.state.imagenn=this.state.imagenReporte;
+        this.componentDidMount = this.componentDidMount.bind(this);
       }
 
-      handleCheckBoxChange= event=>this.setState({
-        checked: event.target.checked
-    })
+
       componentDidMount(){
         const { match: {params}} = this.props;
-        const uri = `/api/ordenar/${params.id}`;
+        const uri = `/api/ordenar/imagen/${params.id}`;
         paxios.get(uri)
         .then(
           ({data})=>{
@@ -130,9 +140,10 @@ export default class Reporte extends Component {
           }
         );
       }
-    
-
+      
   render() {
+    console.log(this.state.imagenn);
+
     return (
         <PDFViewer style={styles.viewer}>
             <Document>
@@ -140,33 +151,23 @@ export default class Reporte extends Component {
                 <View style={styles.section}>
                     <Text style={styles.regad}>REG-AD.126</Text>
                     <Image style={styles.image} src='/LOGO_2C1.png'/>
-                    <Text style={styles.h1}>UNIVERSIDAD CATÓLICA DE HONDURAS</Text>
+                    <Text style={styles.h1}>UNIVERSIDAD CATÓLICA DE HONDURAS {this.state.imagenReporte}</Text>
                     <Text style={styles.h2}>"Nuestra Señora Reina de la Paz"</Text>
                     <Text style={styles.h3}>REPORTE DE MANTENIMIENTO</Text>
                     <Text style={styles.h3}>Campus: ___________________    Fecha: {this.props.match.params.dia}/{this.props.match.params.mes}/{this.props.match.params.anno}   N° Reporte:_______ </Text>
-                    <Text style={styles.h3}>Usuario: ___________________    Ubicación:_______ </Text>
+                    <Text style={styles.h3}>Usuario: {this.props.match.params.nombre}    N° Cuenta: {this.props.match.params.identidad} </Text>
                     <Text style={styles.h4}>Elemento inspeccionado</Text>
                     <Text style={styles.h5}>Edificio o espacio: {this.props.match.params.idEdificio}, {this.props.match.params.nombreEdificio}</Text>
                     <Text style={styles.h5}>Elemento reportado: {this.props.match.params.elementoReporte}</Text>
                     <Text style={styles.h5}>Descripción del elemento reportado: {this.props.match.params.descripcionReporte}</Text>
-                    <View style={styles.cuadro}>
+                    <View style={styles.cuadro}> 
                          <Text style={styles.h6}>Informe de lo encontrado</Text>
                          <Text style={styles.h7}>{this.props.match.params.observacion}</Text>
                     </View>
-                    <Text style={styles.h8}>Levantado por: {this.props.match.params.nombre}, {this.props.match.params.identidad}</Text>
+                    <Text style={styles.h8}>Responsable de mantenimiento: _______________________________________</Text>
                     <Text style={styles.h10}>Firma: ____________________________________</Text>
                     <Text style={styles.h9}>VERSIÓN APROBADO 18 DE OCTUBRE DE 2012</Text>   
                 </View> 
-            </Page>
-            <Page size="Letter" style={styles.page}>
-                <View style={styles.section}>
-                    <Image style={styles.image} src='/LOGO_2C1.png'/>
-                    <Text style={styles.h1}>UNIVERSIDAD CATÓLICA DE HONDURAS</Text>
-                    <Text style={styles.h2}>"Nuestra Señora Reina de la Paz"</Text>
-                    <Text style={styles.h3}>REPORTE DE MANTENIMIENTO</Text>
-                    <Text style={styles.h3}>EVIDENCIA FOTOGRÁFICA</Text>
-                   
-                </View>
             </Page>
             </Document>
         </PDFViewer>

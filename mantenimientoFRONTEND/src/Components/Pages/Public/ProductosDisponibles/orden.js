@@ -45,6 +45,11 @@ export default class Orden extends Component {
       fechaAnno: anno,
       imagenReporte: '',
       error: false,
+      nombreError: false,
+      identidadError: false,
+      elementoReportarError: false,
+      descripcionReportarError: false,
+      imagenError: false,
       cargarImagen: 'No se ha cargado una imagen',
       isLoading: false,
     };
@@ -56,6 +61,57 @@ export default class Orden extends Component {
 
   onClickHandler(e){
 
+    
+    if(this.state.nombre === null || this.state.nombre.trimLeft().length<2)
+    {
+      this.state.nombreError = true;
+      this.setState({nombreError:"Debe ingresar un nombre"});
+      return 0;
+    }
+    else{
+      this.state.nombreError = false;
+    }
+
+    if(this.state.identidad === null || this.state.identidad.trimLeft().length<10)
+    {
+      this.state.identidadError = true;
+      this.setState({identidadError:"Debe ingresar su número de cuenta"});
+      return 0;
+    }
+    else{
+      this.state.identidadError = false;
+    }
+
+
+    if(this.state.elementoReportar === null || this.state.elementoReportar.trimLeft().length<1)
+    {
+      this.state.elementoReportarError = true;
+      this.setState({elementoReportarError:"Debe ingresar un Elemento para reportar"});
+      return 0;
+    }
+    else{
+      this.state.elementoReportarError = true;
+    }
+
+    if(this.state.descripcionReportar === null || this.state.descripcionReportar.trimLeft().length<1)
+    {
+      this.state.descripcionReportarError = true;
+      this.setState({descripcionReportarError:"Debe ingresar un descripcion para el reporte"});
+      return 0;
+    }
+    else{
+      this.state.descripcionReportarError = false;
+    }
+
+    if(this.state.cargarImagen === 'No se ha cargado una imagen')
+    {
+      this.state.imagenError = true;
+      this.setState({imagenError:"Cargue una fotografía para el reporte"});
+      return 0;
+    }
+    else{
+      this.state.imagenError = false;
+    }
   
     this.setState({isLoading:true});
     naxios.post(
@@ -109,6 +165,7 @@ export default class Orden extends Component {
         this.state.imagenReporte=e.target.result;
         this.state.cargarImagen = "Imagen cargada";
         this.setState({"cargarImagen": "Imagen cargada"});
+        this.state.imagenError = false;
       }
 
     }
@@ -134,18 +191,21 @@ export default class Orden extends Component {
                 name="nombre"
                 onChange={this.onChangeHandler}
               />
+              {(this.state.nombreError && true)?(<div className="errorDOS">{this.state.nombreError}</div>):null}
               <Campo
                 caption="Identidad"
                 value={this.state.identidad}
                 name="identidad"
                 onChange={this.onChangeHandler}
               />
+              {(this.state.identidadError && true)?(<div className="errorDOS">{this.state.identidadError}</div>):null}
               <Campo
                 caption="Elemento a reportar"
                 value={this.state.elementoReportar}
                 name="elementoReportar"
                 onChange={this.onChangeHandler}
               />
+              {(this.state.elementoReportarError && true)?(<div className="errorDOS">{this.state.elementoReportarError}</div>):null}
               <TextArea
                 caption="Descripción del reporte"
                 value={this.state.descripcionReportar}
@@ -153,6 +213,7 @@ export default class Orden extends Component {
                 onChange={this.onChangeHandler}
                 maxLenght="300"
               />
+              {(this.state.descripcionReportarError && true)?(<div className="errorDOS">{this.state.descripcionReportarError}</div>):null}
               <span style={{fontStyle: 'italic', fontWeight: '500'}}>Cargue una fotografía como evidencia: </span>
           
               <input 
@@ -163,10 +224,12 @@ export default class Orden extends Component {
                 id="file-2" 
                 class="inputfile inputfile-2"
               />
+ 
               <br></br><br></br>
               {(this.state.error && true)?(<div className="error">{this.state.error}</div>):null}
               <label for="file-2"><svg width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> Subir imagen&nbsp;&hellip;</label>
               {(this.state.cargarImagen && true) ? (<div className="imagenMensaje">{this.state.cargarImagen}</div>) : null}
+              {(this.state.imagenError && true)?(<div className="errorDOS">{this.state.imagenError}</div>):null}
               <section className="action">
                 <Button
                   caption="Enviar"

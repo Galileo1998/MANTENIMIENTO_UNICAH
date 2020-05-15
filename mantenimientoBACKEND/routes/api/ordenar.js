@@ -97,6 +97,41 @@ router.get('/:id', (req, res, next)=>{
   }); //findOne
 });// get ById
 
+router.get('/imagen/:id', (req, res, next)=>{
+  var query = {"_id": new ObjectID(req.params.id)}
+  thingsColl.findOne(query, (err, doc)=>{
+    if(err) {
+      console.log(err);
+      return res.status(401).json({"error":"Error al extraer documento"});
+    }
+
+    delete doc.id;
+    delete doc.idEdificio;
+    delete doc.nombreEdificio;
+    delete doc.pisosEdificio;
+    delete doc.oficinasEdificio;
+    delete doc.bannosEdificio;
+    delete doc.aulasEdificio;
+    delete doc.nombre;
+    delete doc.identidad;
+    delete doc.descripcion;
+    delete doc.descripcionReportar;
+    delete doc.elementoReportar;
+    delete doc.estado;
+    delete doc._id;
+    delete doc.fechaSolicitud;
+    delete doc.fechaMes;
+    delete doc.fechaDia;
+    delete doc.observacion;
+    delete doc.dd;
+    delete doc.visited;
+    delete doc.type;
+    delete doc.fechaAnno;
+    delete doc.fecha;
+    return res.status(200).json(doc);
+  }); //findOne
+});// get ById
+
 // CRUD Crear, Leer (Read), Actualizar (Update) ,Eliminar (Delete)
 // REST
 // GET  consultas  Read, lectura

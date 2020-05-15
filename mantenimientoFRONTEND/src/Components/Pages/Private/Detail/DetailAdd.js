@@ -85,24 +85,28 @@ export default class DetailAdd extends Component {
             value={this.state.pisosEdificio}
             name="pisosEdificio"
             onChange={this.onChangeHandler}
+            type = 'number'
           />
           <Campo
             caption="Número de baños en el edificio o espacio:"
             value={this.state.bannosEdificio}
             name="bannosEdificio"
             onChange={this.onChangeHandler}
+            type = 'number'
           />
           <Campo
             caption="Número de aulas en el edificio:"
             value={this.state.aulasEdificio}
             name="aulasEdificio"
             onChange={this.onChangeHandler}
+            type = 'number'
           />
           <Campo
             caption="Número de oficinas en el edificio:"
             value={this.state.oficinasEdificio}
             name="oficinasEdificio"
             onChange={this.onChangeHandler}
+            type = 'number'
           />
 
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}
