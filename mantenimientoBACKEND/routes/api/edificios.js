@@ -39,7 +39,7 @@ if ( !IndexVerified) {
   }); // indexExists
 }
 var thingsStruct = {
-  "idEdificio": 0,
+  "idEdificio": "",
   "nombreEdificio":"",
   "pisosEdificio": 0,
   "bannosEdificio": 0,

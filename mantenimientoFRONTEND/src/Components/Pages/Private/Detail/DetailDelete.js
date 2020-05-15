@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from '../../../Common/Btns/Buttons';
-import Campo from '../../../Common/Campo/Campo';
+import Campo from '../../../Common/Campo/CampoReadOnly';
 import { paxios } from '../../../../Utilities';
 import './Detail.css';
 
@@ -81,24 +81,28 @@ export default class DetailDelete extends Component {
             value={this.state.pisosEdificio}
             name="pisosEdificio"
             onChange={this.onChangeHandler}
+            placeholder='0'
           />
           <Campo
             caption="Número de baños en el edificio o espacio:"
             value={this.state.bannosEdificio}
             name="bannosEdificio"
             onChange={this.onChangeHandler}
+            placeholder='0'
           />
           <Campo
             caption="Número de aulas en el edificio:"
             value={this.state.aulasEdificio}
             name="aulasEdificio"
             onChange={this.onChangeHandler}
+            placeholder='0'
           />
           <Campo
             caption="Número de oficinas en el edificio:"
             value={this.state.oficinasEdificio}
             name="oficinasEdificio"
             onChange={this.onChangeHandler}
+            placeholder='0'
           />
 
           {(this.state.error && true) ? (<div className="error">{this.state.error}</div>) : null}

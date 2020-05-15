@@ -15,6 +15,8 @@ export default class DetalleOrden extends Component {
           things:[],
           isLoading: false,
           error: false,
+          observacionError: false,
+          observacionAltra: false,
         }
         this.onChangeHandler = this.onChangeHandler.bind(this);
         this.onSaveBtnClick = this.onSaveBtnClick.bind(this);
@@ -31,7 +33,12 @@ export default class DetalleOrden extends Component {
         .then(
             ({data})=>{
                 this.setState({...data});
-            }
+                var numero = data.observacion.length;
+                if(numero>0)
+                {
+                  this.state.observacionAltra = false;
+                }
+            },
         )
         .catch(
           (err)=>{
@@ -49,13 +56,36 @@ export default class DetalleOrden extends Component {
     const { name, value } = e.target;
     //validar
     this.setState({ ...this.state, [name]: value });
+    console.log(this.state.observacion.trimLeft().length);
+    /*if(this.state.observacion.trimLeft().length>2)
+    {
+      this.state.observacionAltra = true;
+      this.setState({ observacionAltra: "Imprimir" });
+    }
+    else{
+      this.state.observacionAltra = false;
+      this.setState({ observacionError: "Redacte una observación para el reporte" });
+    }*/
   }
   onSaveBtnClick(e) {
+    if(this.state.observacion === null || this.state.observacion.trimLeft().length<2)
+    {
+      this.state.observacionError = true;
+      this.state.observacionAltra = false;
+      this.setState({observacionError: "Redacte una observación para el reporte"});
+      this.setState({ observacionAltra: "Error" });
+      return 0;
+    }
+    else{
+      this.state.observacionError = false;
+      this.state.observacionAltra = true;
+      this.setState({ observacionAltra: "Imprimir" });
+    }
     const estado = 'Confirmado';
     const observacion = this.state.observacion;
     paxios.put(`/api/ordenar/${this.props.match.params.id}`, {estado, observacion})
       .then(({ data }) => {
-        this.props.history.push("/backlog");
+        this.props.history.push(`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`);
       })
       .catch((error) => {
         console.log(error);
@@ -63,7 +93,7 @@ export default class DetalleOrden extends Component {
       })
       
   }
-
+  
   render() {
     console.log(this.state);
     return (
@@ -118,7 +148,7 @@ export default class DetalleOrden extends Component {
                 onChange={this.onChangeHandler}
                 maxLenght="300"
           />
-          <Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`}>Imprimir Reporte</Link>
+           {(this.state.observacionError && true)?(<div className="errorDOS">{this.state.observacionError}</div>):(<Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`}>Imprimir Reporte</Link>)}
           <section className="action">
             <Button
               caption="Confirmar"
