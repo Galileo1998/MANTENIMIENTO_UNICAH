@@ -1,0 +1,32 @@
+.current-month {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	padding: 8px;
+
+	&__title {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 200;
+		font-size: 18px;
+		color: #f0403c;
+		width: 150px;
+	}
+
+	&__control {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		transition: .2s;
+	}
+
+	&__arrow {
+		padding: 0 8px;
+		font-size: 18px;
+		color: #808080;
+		cursor: pointer;
+
+		&:hover {
+			color: lighten(#808080, 20%);
+		}
+	}
+}

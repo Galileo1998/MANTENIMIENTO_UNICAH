@@ -1,0 +1,42 @@
+.week {
+  &__day {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      border-right: 1px solid #e6e6e6;
+    }
+
+    &_weekend {
+      background-color: #fafafa;
+    }
+  }
+
+  &__hours {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.week-hours {
+  &__item {
+
+  }
+}
+
+.week-hour {
+  display: flex;
+  position: relative;
+  min-height: 40px;
+
+  &_hover {
+    background-color: #efefef;
+  }
+
+  &__body {
+    flex-grow: 1;
+    border-top: 1px solid #ccc;
+  }
+}

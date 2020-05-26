@@ -1,0 +1,45 @@
+.footer {
+	padding: 8px;
+	background-color: #444;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	@media (max-height: 400px) {
+		padding: 4px;
+	}
+
+	&__auth {
+		display: block;
+		padding: 4px 16px;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 600;
+		font-size: 12px;
+		color: #999;
+		text-transform: uppercase;
+		border-radius: 2px;
+		background-color: #333;
+		cursor: pointer;
+		transition: .3s;
+
+		&:hover {
+			background-color: darken(#333, 2%);
+			color: lighten(#999, 30%)
+		}
+	}
+}
+
+.socials {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+}
+
+h1{
+	font-size: 15px;
+	color: white;
+	align-items: center;
+	text-align: center;
+	height: 50px;
+}

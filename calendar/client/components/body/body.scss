@@ -1,0 +1,19 @@
+.content {
+  &__body {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+.body {
+  display: flex;
+  position: relative;
+
+  .gm-scrollbar .thumb {
+    background-color: #ebebeb;
+
+    &:hover, &:active {
+      background-color: #808080;
+    }
+  }
+}

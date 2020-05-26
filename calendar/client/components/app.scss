@@ -1,0 +1,154 @@
+body, ul, h1, h2, h3, h4, h5, h6, p {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+	height: 100%;
+}
+
+ul, li {
+	list-style: none;
+}
+
+input, textarea {
+	outline: none;
+}
+
+.view {
+	height: 100%;
+}
+
+.app {
+	height: 100%;
+	min-width: 320px;
+	min-height: 360px;
+	animation: app-opacity .2s linear;
+}
+
+@keyframes app-opacity {
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+.waiting {
+	position: fixed;
+	left: 0;
+	right: 0;
+	height: 100%;
+
+	&__spinner {
+		position: absolute;
+		top: 40%;
+		left: calc(50% - 40px);
+		display: block;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		border: 10px solid;
+		border-color: #fff #999;
+		animation-name: app-waiting;
+		animation-duration: 0.7s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+	}
+}
+
+@keyframes app-waiting {
+	0% {transform: rotate(0deg)}
+	100% {transform: rotate(360deg)}
+}
+
+.content {
+	display: flex;
+	height: 100%;
+
+	&__main {
+		box-sizing: border-box;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+  	width: calc(100% - 281px);
+		position: relative;
+		transition: .3s;
+
+  	@media (max-width: 1070px) {
+  		width: calc(100% - 32px);
+
+  		&.blocked {
+
+  			&:after {
+  				content: '';
+  				position: absolute;
+  				top: 0;
+  				bottom: 0;
+  				left: 0;
+  				right: 0;
+  				background-color: #fff;
+  				opacity: .5;
+  				z-index: 999;
+  			}
+  		}
+  	}
+	}
+
+	&__sidebar {
+		flex-grow: 0;
+		flex-shrink: 0;
+		display: flex;
+		width: 280px;
+		position: relative;
+		background-color: #002a80;
+		border-right: 1px solid #858585;
+		transition: .3s;
+
+	  @media (max-width: 1070px) {
+	  	width: 32px;
+	  }
+	}
+
+	&__swipe {
+		flex-grow: 1;
+		display: none;
+		justify-content: center;
+		align-items: center;
+		width: 32px;
+		cursor: pointer;
+		color: #fff;
+  	background-color: #002a80;
+
+		@media (max-width: 1070px) {
+			display: flex;
+
+			&.hidden {
+				display: none;
+			}
+		}
+	}
+}
+
+.message {
+	display: block;
+	font-size: 13px;
+
+	&_error {
+		color: #f0403c;
+
+		&:after {
+			box-shadow: 1px 1px 0 0 #f0403c;
+		}
+	}
+
+	&_warning {
+		color: #1f97fc;
+
+		&:after {
+			box-shadow: 1px 1px 0 0 #1f97fc;
+		}
+	}
+}
+
+.mouse-events-off {
+  pointer-events: none;
+}

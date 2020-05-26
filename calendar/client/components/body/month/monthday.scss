@@ -1,0 +1,161 @@
+.month {
+  &__day {
+    flex-grow: 0;
+  }
+}
+
+.month-day {
+  flex: 1 1 40px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-top: 1px solid #e6e6e6;
+
+  &:not(:last-child) {
+    border-right: 1px solid #e6e6e6;
+  }
+
+  &_today {
+    .month-day__number {
+    }
+  }
+
+  &_active {
+    .month-day__number {
+    }
+  }
+
+  &_weekend {
+    background-color: #fbfbfb;
+  }
+
+  &_hover {
+    background-color: #f6f6f6;
+  }
+
+  &_notcurrent {
+    .month-day__number,
+    .month-day__add {
+      opacity: .5;
+    }
+  }
+
+  &__head {
+   flex-grow: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+  }
+
+  &__number {
+    margin-left: 5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #323232;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      margin-left: 2px;
+      font-size: 11px;
+    }
+  }
+
+  &__add {
+    margin-right: 5px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 100%;
+    color: #323232;
+
+    @media (max-width: 768px) {
+      margin-right: 2px;
+      font-size: 21px;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+  }
+
+  &__events {
+    display: none;
+    padding-left: 2px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #323232;
+
+    @media (max-height: 400px) {
+      display: block;
+    }
+  }
+
+  &__count {
+    color: #f0403c;
+  }
+
+  &__all {
+    box-sizing: border-box;
+    padding: 2px 4px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 2;
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 2px;
+  }
+
+  &__full {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__close {
+    padding-bottom: 1px;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  &__event {
+    margin-bottom: 1px;
+    padding: 1px 4px;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__event-back {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e6e6e6;
+    z-index: -1;
+  }
+}
