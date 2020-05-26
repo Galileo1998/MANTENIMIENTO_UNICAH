@@ -12,8 +12,8 @@ export default class SearchResults extends React.Component {
 
 	getSearchString() {
 		const { search } = this.props;
-		if (search) return `Results for "${search}":`;
-		return 'Search string is empty.';
+		if (search) return `Resultados para: "${search}":`;
+		return 'Búsqueda vacía.';
 	}
 
 	getGroup(id) {
