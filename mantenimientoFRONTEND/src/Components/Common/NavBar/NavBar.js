@@ -11,7 +11,7 @@ const NavItem = ({ href, to, children, ...rest }) => {
 };
 const NavItemCalendar = ({ href, to, children, ...rest }) => {
   return (
-    <NavLink activeClassName="activeNav" exact href="http://localhost:9001/">{children}</NavLink>
+    <NavLink activeClassName="activeNav" exact href="http://localhost:3003/">{children}</NavLink>
   );
 };
 
@@ -32,7 +32,7 @@ export default ({auth, unSetAuth})=>{
         <NavItem to="/misOrdenes">&nbsp;Solicitudes</NavItem>
         <NavItem to="/backlog">&nbsp;Edificios</NavItem>
         <NavItem to="/signin">&nbsp;Nuevo Usuario</NavItem>
-        <a href="http://localhost:9001/">Calendario</a>
+        <a href="http://localhost:3003/">Calendario</a>
       </nav>
     )
   }

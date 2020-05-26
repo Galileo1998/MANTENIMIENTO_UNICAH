@@ -55,7 +55,7 @@ if (NODE_ENV == 'development') {
 	module.exports = merge(common, {
 		devServer: {
 			hot: true,
-			port: 9001,
+			port: 3003,
 			proxy: {
 				'*': 'http://localhost:3002'
 			}

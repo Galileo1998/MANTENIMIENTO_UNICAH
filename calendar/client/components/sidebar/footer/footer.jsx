@@ -11,8 +11,7 @@ const socials = [
 
 const Footer = ({ logout }) => (
 	<footer className='footer'>
-		<center>
-		</center>
+			<a className="cla" href="http://localhost:3000/" style={{textDecoration:"none", color:"white", marginLeft:"20%"}}>Volver a Mantenimiento</a>
 	</footer>
 );
 

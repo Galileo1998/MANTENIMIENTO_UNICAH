@@ -11,3 +11,4 @@ export const MONTHS_IN_YEAR = 12;
 export const DAY = moment.duration(1, 'days'); 
 export const DAYS_IN_MONTH_SPACE = 42;
 export const WEEK = DAY * DAYS_IN_WEEK;
+export const IMAGE_LOGO = './LOGO_2C1.png'; 

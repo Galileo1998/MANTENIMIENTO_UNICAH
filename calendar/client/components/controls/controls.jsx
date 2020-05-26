@@ -12,6 +12,7 @@ import { DAYS_IN_WEEK } from '../../constants/calendar.js';
 import View from './view/view.jsx';
 import Search from './search/search.jsx';
 import CurrentSpace from './currentspace/currentspace.jsx';
+import Image from './image/image.jsx';
 
 import './controls.scss';
 
@@ -108,6 +109,7 @@ class Controls extends React.Component {
 					onChange={this.onSearchChange}
 					onCancel={this.onSearchCancel}
 				/>
+				<Image />
 			</header>
 		);
 	}

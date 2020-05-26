@@ -15,7 +15,7 @@ const input = ({ input, name, label, type, meta: { touched, error, active } }) =
 
 const validate = values => {
   const errors = {};
-  values.email = 'mantenimiento10@unicah.edu';
+  values.email = 'mantenimiento100@unicah.edu';
   values.password = 'Mantenimiento2020'
   if (!values.email) {
     errors.email = 'Required';
