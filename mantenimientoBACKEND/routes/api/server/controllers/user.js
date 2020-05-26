@@ -42,6 +42,6 @@ export function auth(req, res, next) {
 
 function generateToken(user) {
   return jwt.sign({ data: user }, config.secret, {
-    expiresIn: '1000h'
+    expiresIn: '24h'
   });
 }

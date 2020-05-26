@@ -86,7 +86,7 @@ class Year extends React.Component {
                   <span className='year__events-count'>{eventsNumber}</span> events.
                 </span>
               );
-              const empty = <span className='year__events'>No events.</span>;
+              const empty = <span className='year__events'>No hay eventos.</span>;
 
               return (
                 <li

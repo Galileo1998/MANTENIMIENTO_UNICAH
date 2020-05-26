@@ -52,7 +52,7 @@ class Events extends React.Component {
 
 		return (
 			<div className='events'>
-        <h3 className='events__date'>{`${date.format('dddd D/MM/YYYY')}`}</h3>
+        <h3 className='events__date'>{(date.format('dddd')==='Monday')?`Lunes, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Tuesday')?`Martes, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Wednesday')?`Miércoles, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Thursday')?`Jueves, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Friday')?`Viernes, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Saturday')?`Sábado, ${date.format('D/MM/YYYY')}`:((date.format('dddd')==='Sunday')?`Domingo, ${date.format('D/MM/YYYY')}`:(null)))))))}</h3>
         <div className='events__scroll-container'>
   				{eventsStatus.status === 'fetching' ? spinner : events.length ? content : empty}
         </div>

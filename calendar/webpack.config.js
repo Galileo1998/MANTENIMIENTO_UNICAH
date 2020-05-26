@@ -55,9 +55,9 @@ if (NODE_ENV == 'development') {
 	module.exports = merge(common, {
 		devServer: {
 			hot: true,
-			port: 9000,
+			port: 9001,
 			proxy: {
-				'*': 'http://localhost:3000'
+				'*': 'http://localhost:3002'
 			}
 		},
 		devtool: 'inline-source-map'

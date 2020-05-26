@@ -4,7 +4,7 @@ const config = {
   jwtSession: {
     session: false
   },
-  port: process.env.PORT || 3002
+  port: process.env.PORT || 3000
 };
 
 export default config;

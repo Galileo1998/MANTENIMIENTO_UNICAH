@@ -15,6 +15,8 @@ const input = ({ input, name, label, type, meta: { touched, error, active } }) =
 
 const validate = values => {
   const errors = {};
+  values.email = 'mantenimiento10@unicah.edu';
+  values.password = 'Mantenimiento2020'
   if (!values.email) {
     errors.email = 'Required';
   } else if (!/^[\w-_]+@\w+.\w{2,4}$/i.test(values.email)) {
@@ -30,10 +32,10 @@ const validate = values => {
 
 const Signin = ({ handleSubmit }) => (
   <form id='sign' className='auth__signin signin' onSubmit={handleSubmit(login)}>
-		<h2 className='signin__head'>Log in</h2>
-		<Field component={input} type='text' name='email' label='Email' />
+		<h2 className='signin__head'> INICIAR SESIÓN</h2>
+		<Field component={input} type='text' name='email' label='Email'/>
 		<Field component={input} type='password' name='password' label='Password' />
-		<button className='signin__button'>login</button>
+		<button className='signin__button'>ENTRAR</button>
 	</form>
 );
 
@@ -43,6 +45,5 @@ Signin.propTypes = {
 };
 
 export default reduxForm({
-  form: 'signin',
   validate
 })(Signin);

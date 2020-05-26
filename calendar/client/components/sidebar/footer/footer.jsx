@@ -12,7 +12,6 @@ const socials = [
 const Footer = ({ logout }) => (
 	<footer className='footer'>
 		<center>
-		<a className='footer__auth' onClick={logout}>Cerrar Sesión</a>
 		</center>
 	</footer>
 );

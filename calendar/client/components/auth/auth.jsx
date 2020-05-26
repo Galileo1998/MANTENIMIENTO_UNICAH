@@ -38,10 +38,6 @@ class Auth extends React.Component {
     return (
       <div className='auth'>
         <div className='auth__container'>
-        <Signin />
-        <div className='auth__splitter'>
-          <span className='auth__splitter-text'>or</span>
-        </div>
         <Signup />
         </div>
       </div>

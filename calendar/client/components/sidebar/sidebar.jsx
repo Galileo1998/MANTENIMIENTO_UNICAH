@@ -18,9 +18,11 @@ class Sidebar extends React.Component {
 		const { logout, sidebar } = this.props;
 		return (
 			<aside className={classNames('sidebar', {'active': sidebar})} ref={(node) => {this.sidebar = node;}}>
+
 				<MiniCalendar className='' />
 				<Header />
 				<Body />
+
 				<div className='sidebar__footer'>
 					<Footer logout={logout} />
 				</div>

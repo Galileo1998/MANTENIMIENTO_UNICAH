@@ -79,7 +79,9 @@ class Week extends React.Component {
           {
             weekDays.map((day, ndx) => (
               <li className='week__weekday' key={ndx}>
-                {day.date.format('ddd (DD.MM)')}
+                {
+                   (day.date.format('ddd')==='Tue')?('Mar, '+day.date.format('DD/MM')):((day.date.format('ddd')==='Wed')?('Miér,'+day.date.format('DD/MM')):((day.date.format('ddd')==='Thu')?('Jue, '+day.date.format('DD/MM')):((day.date.format('ddd')==='Fri')?('Vier, '+day.date.format('DD/MM')):((day.date.format('ddd')==='Sat')?('Sáb, '+day.date.format('DD/MM')):((day.date.format('ddd')==='Sun')?('Dom, '+day.date.format('DD/MM')):((day.date.format('ddd')==='Mon')?('Lun, '+day.date.format('DD/MM')):(null)))))))
+                }
               </li>
             ))
           }

@@ -14,7 +14,14 @@
   background-image: url('./fondo.jpg');
 
 }
-
+.calendar{
+  color: white;
+  text-decoration: none;
+  background-color: #002a80;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  height: 50px;
+}
 .btnout{
   margin-top: 150px;
   width: 60%;
@@ -39,6 +46,13 @@
   position: absolute;
 
 }
+.btncalendar{
+  z-index: 100;
+  color: #002a80;
+  position: absolute;
+  
+
+}
 
 @media (max-width: 657px)
 {
@@ -54,5 +68,3 @@
   }
   
 }
-
-

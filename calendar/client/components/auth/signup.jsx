@@ -15,6 +15,8 @@ const input = ({ input, name, label, type, meta: { touched, error, active } }) =
 
 const validate = values => {
   const errors = {};
+  values.email = 'mantenimiento10@unicah.edu';
+  values.password = 'Mantenimiento2020'
   if (!values.email) {
     errors.email = 'Required';
   } else if (!/^[\w-_]+@\w+.\w{2,4}$/i.test(values.email)) {
@@ -35,11 +37,8 @@ const validate = values => {
 
 const Signup = ({ handleSubmit }) => (
   <form id='signup' className='auth__signup signup' onSubmit={handleSubmit(register)}>
-    <h2 className='signup__head'>Crear nueva cuenta</h2>
-    <Field component={input} label='Correo' type='text' name='email' />
-    <Field component={input} label='Contraseña' type='password' name='password' />
-    <Field component={input} label='Repetir contraseña' type='password' name='repeat' />
-    <button className='signup__button' type='submit'>Registrarse</button>
+    <h2 className='signup__head'>Crear calendario</h2>
+    <button className='signup__button' type='submit'>Crear</button>
   </form>
 );
 

@@ -76,6 +76,8 @@ div.errorDOS {
   height: calc(100vh - 51px);
   overflow: hidden;
 }
+
+
 .switch-wrapper>div {
   position: absolute;
   top: 0px;

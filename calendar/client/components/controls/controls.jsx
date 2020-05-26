@@ -45,14 +45,14 @@ class Controls extends React.Component {
 		const { setSpaces } = this;
 
 		switch(activeView) {
-			case 'Day':
+			case 'Día':
 				return type ? setSpaces(space.clone().add(1, 'days')) : setSpaces(space.clone().subtract(1, 'days'));
-			case 'Week':
+			case 'Semana':
 				const day = space.day() ? space.day() - 1 : 6;
 				return type ? setSpaces(space.clone().add(DAYS_IN_WEEK - day, 'days')) : setSpaces(space.clone().subtract(day + DAYS_IN_WEEK, 'days'));
-			case 'Month':
+			case 'Mes':
 				return type ? setSpaces(space.clone().add(1, 'months')) : setSpaces(space.clone().subtract(1, 'months'));
-			case 'Year':
+			case 'Año':
 				return type ? setSpaces(space.clone().add(1, 'years')) : setSpaces(space.clone().subtract(1, 'years'));
 		}
 	}

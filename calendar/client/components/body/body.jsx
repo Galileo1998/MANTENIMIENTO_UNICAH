@@ -22,9 +22,9 @@ class Body extends React.Component {
 		const { active, space } = this.props;
 
 		switch(active) {
-			case 'Day': return <Day />;
-			case 'Week': return <Week />;
-			case 'Year': return <Year />;
+			case 'Día': return <Day />;
+			case 'Semana': return <Week />;
+			case 'Año': return <Year />;
 			default: return <Month space={space}/>;
 		}
 	}

@@ -212,7 +212,7 @@ class EventWindow extends React.Component {
 			<div className={classNames('event-window', {'opened': eventWindow.showed})} id='event-window'>
 				<div className='event-window__popup'>
 					<div className='event-window__head'>
-						<h2 className='event-window__title'>{id ? 'Actualizar' : 'Add'} Evento</h2>
+						<h2 className='event-window__title'>{id ? 'Actualizar' : 'Añadir'} Evento</h2>
 						<span className='event-window__close' onClick={eventWindowHide}>×</span>
 					</div>
 					<form className='event-window__form' onSubmit={handleSubmit(submit.bind(this))}>

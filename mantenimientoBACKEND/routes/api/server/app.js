@@ -17,8 +17,6 @@ db.once('open', function() {
   console.log('Connected to database!')
 });
 
-
-
 const app = express();
 
 app.use(bodyParser.json());

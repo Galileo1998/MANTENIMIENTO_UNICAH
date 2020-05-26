@@ -4,9 +4,14 @@ import { NavLink } from 'react-router-dom';
 import {IoIosHome,IoIosImage, IoIosLogIn, IoIosKey, IoIosToday, IoIosList} from 'react-icons/io';
 import './NavBar.css';
 
-const NavItem = ({ to, children, ...rest }) => {
+const NavItem = ({ href, to, children, ...rest }) => {
   return (
     <NavLink activeClassName="activeNav" exact to={to}>{children}</NavLink>
+  );
+};
+const NavItemCalendar = ({ href, to, children, ...rest }) => {
+  return (
+    <NavLink activeClassName="activeNav" exact href="http://localhost:9001/">{children}</NavLink>
   );
 };
 
@@ -27,6 +32,7 @@ export default ({auth, unSetAuth})=>{
         <NavItem to="/misOrdenes">&nbsp;Solicitudes</NavItem>
         <NavItem to="/backlog">&nbsp;Edificios</NavItem>
         <NavItem to="/signin">&nbsp;Nuevo Usuario</NavItem>
+        <a href="http://localhost:9001/">Calendario</a>
       </nav>
     )
   }
