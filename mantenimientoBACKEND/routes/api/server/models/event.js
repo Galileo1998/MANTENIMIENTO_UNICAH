@@ -13,28 +13,28 @@ const eventSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    validate: [textValidate, 'Invalid title'],
-    maxlength: [50, 'Title must be less than 50 characters']
+    validate: [textValidate, 'Título inválido'],
+    maxlength: [50, 'El título debe ser menor a 50 caracteres']
   },
   description: {
     type: String,
     required: false,
     default: '',
-    validate: [textValidate, 'Invalid description'],
-    maxlength: [200, 'Title must be less than 200 characters']
+    validate: [textValidate, 'Descripción inválida'],
+    maxlength: [200, 'La descripción debe ser menor a 200 caracteres']
   },
   dateBegin: {
     type: String,
     required: true,
     default: new Date(),
-    validate: [dateValidate, 'Invalid date']
+    validate: [dateValidate, 'Fecha inválida']
   },
   dateEnd: {
     type: String,
     required: true,
     validate: [
-      {validator: datesValidate, msg: 'Ends date must be greater than begins date'},
-      {validator: dateValidate, msg: 'Invalid date'}
+      {validator: datesValidate, msg: 'La fecha de finalización debe ser mayor a la fecha de inicio'},
+      {validator: dateValidate, msg: 'Fecha inválida'}
     ],
     default: new Date()
   },

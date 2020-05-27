@@ -18,14 +18,14 @@ const validate = values => {
   values.email = 'mantenimiento100@unicah.edu';
   values.password = 'Mantenimiento2020'
   if (!values.email) {
-    errors.email = 'Required';
+    errors.email = 'Requerido';
   } else if (!/^[\w-_]+@\w+.\w{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = 'Dirección de correo inválida'
   }
   if (!values.password) {
-    errors.password = 'Required';
+    errors.password = 'Requerido';
   } else if (values.password.length < 6) {
-    errors.password = 'Must be more than 6 and less than 20 characters'
+    errors.password = 'La extensión de la contraseña debe ser mayor a 6 caracteres';
   }
   return errors;
 }

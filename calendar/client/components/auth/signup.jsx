@@ -20,7 +20,7 @@ const validate = values => {
   if (!values.email) {
     errors.email = 'Required';
   } else if (!/^[\w-_]+@\w+.\w{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address'
+    errors.email = 'Dirección de correo inválida'
   }
   if (!values.password) {
     errors.password = 'Required';
