@@ -80,19 +80,19 @@ const validate = values => {
 	const timeBegin = moment(values.timeBegin, 'HH:mm');
 	const timeEnd = moment(values.timeEnd, 'HH:mm');
 
-	if (!values.title) errors.title = 'Required';
-	else if (values.title.length > 50) errors.title = 'Must be 50 characters or less';
+	if (!values.title) errors.title = 'Requerido';
+	else if (values.title.length > 50) errors.title = 'Debe tener 50 caracteres o menos';
 
-	if (values.description && values.description.length > 200) errors.description = 'Must be 200 characters or less';
+	if (values.description && values.description.length > 200) errors.description = 'Debe tener 200 caracteres o menos';
 
-	if (!values.dateBegin) errors.dateBegin = 'Required';
-	if (!values.dateEnd) errors.dateEnd = 'Required';
-	if (dateEnd.isBefore(dateBegin)) errors.dateEnd = 'Value must not be less than begin date';
+	if (!values.dateBegin) errors.dateBegin = 'Requerido';
+	if (!values.dateEnd) errors.dateEnd = 'Requerido';
+	if (dateEnd.isBefore(dateBegin)) errors.dateEnd = 'El valor no debe ser inferior a la fecha de inicio';
 
-	if (timeEnd.isBefore(timeBegin)) errors.timeEnd = 'Value must not be less than begin time';
+	if (timeEnd.isBefore(timeBegin)) errors.timeEnd = 'El valor no debe ser inferior al tiempo de inicio';
 
-	if (values.allDay === false && !values.timeBegin) errors.timeBegin = 'Required';
-	if (values.allDay === false && !values.timeEnd) errors.timeEnd = 'Required';
+	if (values.allDay === false && !values.timeBegin) errors.timeBegin = 'Requerido';
+	if (values.allDay === false && !values.timeEnd) errors.timeEnd = 'Requerido';
 
 	if (values.periodic && values.week && (dateBegin.clone().add(1, 'weeks').isAfter(dateEnd))) {
 		let daysCounter;
@@ -100,7 +100,7 @@ const validate = values => {
 			const day = i.day() - 1;
 			daysCounter = daysCounter || values.week[day];
 		}
-		if (!daysCounter) errors.week = 'There aren\'t any days with events';
+		if (!daysCounter) errors.week = 'No hay días con eventos';
 	}
 	if (typeof values.group === 'string')
 		values.group = groups.find(group => group._id === values.group);
@@ -168,7 +168,7 @@ class EventWindow extends React.Component {
 			<Select
 				{...input}
 				className='event-window__select event-window__select_groups group-select'
-				placeholder='Select type(group) of event'
+				placeholder='Seleccione tipo (grupo) de evento'
 				searchable={false}
 				clearable={true}
 				options={options}
@@ -227,6 +227,9 @@ class EventWindow extends React.Component {
 					<form className='event-window__form' onSubmit={handleSubmit(submit.bind(this))}>
 						<Field component={inputText} type='text' name='title' label='Título de la actividad' required={true}/>
 						<Field component={textarea} name='description' label='Descripción de la actividad' required={false}/>
+						<Field component={inputText} name='encargado' label='Encargado de la actividad' required={true}/>
+						<Field component={textarea} name='equipoApoyo' label='Equipo de Apoyo' required={false}/>
+						<Field component={textarea} name='codigoActividad' label='Código de actividad' required={true}/>
 						<h3 className='event-window__subtitle'>Intervalos de fechas</h3>
 						<div className='event-window__dates'>
 							<Field component={inputDate} type='date' name='dateBegin' label='Inicia:' value={dateBegin} required={true} novalidate/>

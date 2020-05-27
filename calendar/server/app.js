@@ -14,7 +14,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/calendar');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('Connected to database!')
+  console.log('Conectado a la base de datos!')
 });
 
 

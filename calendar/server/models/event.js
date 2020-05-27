@@ -13,28 +13,49 @@ const eventSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
-    validate: [textValidate, 'Invalid title'],
-    maxlength: [50, 'Title must be less than 50 characters']
+    validate: [textValidate, 'Título inválido'],
+    maxlength: [50, 'El título debe tener menos de 50 caracteres.']
   },
   description: {
     type: String,
     required: false,
     default: '',
-    validate: [textValidate, 'Invalid description'],
-    maxlength: [200, 'Title must be less than 200 characters']
+    validate: [textValidate, 'Descripción inválida'],
+    maxlength: [200, 'El título debe tener menos de 200 caracteres.']
+  },
+  encargado: {
+    type: String,
+    required: true,
+    default: '',
+    validate: [textValidate, 'Texto inválido'],
+    maxlength: [200, 'El título debe tener menos de 200 caracteres.']
+  },  
+  equipoApoyo: {
+    type: String,
+    required: false,
+    default: '',
+    validate: [textValidate, 'Texto inválido'],
+    maxlength: [400, 'El título debe tener menos de 400 caracteres.']
+  }, 
+  codigoActividad: {
+    type: String,
+    required: true,
+    default: '',
+    validate: [textValidate, 'Texto inválido'],
+    maxlength: [4, 'El título debe tener menos de 4 caracteres.']
   },
   dateBegin: {
     type: String,
     required: true,
     default: new Date(),
-    validate: [dateValidate, 'Invalid date']
+    validate: [dateValidate, 'Fecha inválida']
   },
   dateEnd: {
     type: String,
     required: true,
     validate: [
-      {validator: datesValidate, msg: 'Ends date must be greater than begins date'},
-      {validator: dateValidate, msg: 'Invalid date'}
+      {validator: datesValidate, msg: 'La fecha de finalización debe ser mayor que la fecha de inicio'},
+      {validator: dateValidate, msg: 'Fecha inválida'}
     ],
     default: new Date()
   },
@@ -46,14 +67,14 @@ const eventSchema = mongoose.Schema({
   timeBegin: {
     type: String,
     default: null,
-    validate: [timeRequire, 'Required']
+    validate: [timeRequire, 'Requerido']
   },
   timeEnd: {
     type: String,
     default: null,
     validate: [
-      {validator: timeRequire, msg: 'Required'},
-      {validator: timeEndValidate, msg: 'Ends time must be greater than begins time'}
+      {validator: timeRequire, msg: 'Requerido'},
+      {validator: timeEndValidate, msg: 'El tiempo final debe ser mayor que el tiempo inicial'}
     ]
   },
   duration: {

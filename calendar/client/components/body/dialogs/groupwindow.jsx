@@ -15,7 +15,7 @@ const textInput = ({ input, label, type, required, meta: { touched, error, activ
 
 const validate = values => {
   const errors = {};
-  if (!values.label) errors.label = 'Required';
+  if (!values.label) errors.label = 'Requerido';
 
   return errors;
 }
