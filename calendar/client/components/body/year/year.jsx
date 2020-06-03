@@ -83,7 +83,7 @@ class Year extends React.Component {
               const eventsNumber = this.getEventsCount(month, filteredEvents);
               const number = (
                 <span className='year__events'>
-                  <span className='year__events-count'>{eventsNumber}</span> events.
+                  <span className='year__events-count'>{eventsNumber}</span> Eventos.
                 </span>
               );
               const empty = <span className='year__events'>No hay eventos.</span>;

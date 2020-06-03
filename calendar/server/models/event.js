@@ -14,7 +14,7 @@ const eventSchema = mongoose.Schema({
     type: String,
     required: true,
     validate: [textValidate, 'Título inválido'],
-    maxlength: [50, 'El título debe tener menos de 50 caracteres.']
+    maxlength: [100, 'El título debe tener menos de 100 caracteres.']
   },
   description: {
     type: String,
@@ -42,7 +42,7 @@ const eventSchema = mongoose.Schema({
     required: true,
     default: '',
     validate: [textValidate, 'Texto inválido'],
-    maxlength: [4, 'El título debe tener menos de 4 caracteres.']
+    maxlength: [10, 'El título debe tener menos de 10 caracteres.']
   },
   dateBegin: {
     type: String,
@@ -94,7 +94,7 @@ const eventSchema = mongoose.Schema({
 });
 
 function textValidate(value) {
-  return !value || value.match(/^[a-z,.áéíóúÁÉÍÓÚüÜ!\?-_*\$@\s]+$/gi)[0] === value;  
+  return !value || value.match(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u)[0] === value;
 }
 
 function dateValidate(value) {

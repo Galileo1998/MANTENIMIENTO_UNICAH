@@ -60,7 +60,7 @@ class MonthDay extends React.Component {
           {
             events.length ?
               <span className='month-day__events'>
-                <span className='month-day__count'>{events.length}</span> event{events.length - 1 ? 's' : ''}
+                <span className='month-day__count'>{events.length}</span> Eventos{events.length - 1 ? 's' : ''}
               </span> : ''
           }
         </div>

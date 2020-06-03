@@ -13,7 +13,7 @@ import SearchResult from './searchresults.jsx';
 import AddItem from './additem.jsx';
 import Events from './events.jsx';
 import Groups from './groups.jsx';
-
+import MiniCalendar from '../minicalendar/minicalendar.jsx';
 import './body.scss';
 
 class SidebarBody extends React.Component {

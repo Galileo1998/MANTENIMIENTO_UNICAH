@@ -4,6 +4,7 @@ import Campo from '../../../Common/Campo/Campo';
 import { paxios } from '../../../../Utilities';
 import './detalleOrden.css';
 import TextArea from '../../../Common/TextArea/TextArea';
+import TextInput from '../../../Common/Campo/Campo';
 import {Link} from 'react-router-dom';
 import { MdThumbsUpDown } from 'react-icons/md';
 const FileDownload = require('js-file-download');
@@ -83,9 +84,10 @@ export default class DetalleOrden extends Component {
     }
     const estado = 'Confirmado';
     const observacion = this.state.observacion;
-    paxios.put(`/api/ordenar/${this.props.match.params.id}`, {estado, observacion})
+    const codigoActividad = this.state.codigoActividad;
+    paxios.put(`/api/ordenar/${this.props.match.params.id}`, {estado, observacion, codigoActividad})
       .then(({ data }) => {
-        this.props.history.push(`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`);
+        this.props.history.push(`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}/${this.state.codigoActividad}`);
       })
       .catch((error) => {
         console.log(error);
@@ -147,6 +149,12 @@ export default class DetalleOrden extends Component {
                 name="observacion"
                 onChange={this.onChangeHandler}
                 maxLenght="300"
+          />
+         <TextInput
+            caption="Código de actividad:"
+            value={this.state.codigoActividad}
+            name="codigoActividad"
+            onChange={this.onChangeHandler}
           />
            {(this.state.observacionError && true)?(<div className="errorDOS">{this.state.observacionError}</div>):(<Link to={`/reporte/${this.props.match.params.id}/${this.state.idEdificio}/${this.state.nombreEdificio}/${this.state.pisosEdificio}/${this.state.bannosEdificio}/${this.state.aulasEdificio}/${this.state.oficinasEdificio}/${this.state.observacion}/${this.state.elementoReportar}/${this.state.descripcionReportar}/${this.state.nombre}/${this.state.identidad}/${this.state.fechaDia}/${this.state.fechaMes}/${this.state.fechaAnno}/${this.state.imagenReport}`}>Imprimir Reporte</Link>)}
           <section className="action">

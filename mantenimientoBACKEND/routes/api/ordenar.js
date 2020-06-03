@@ -31,6 +31,7 @@ var thingsStruct = {
     "fechaAnno": 0,
     "imagenReporte": '',
     "observacion": '',
+    "codigoActividad": '',
     "dd":'NA',
     "type":""
   };

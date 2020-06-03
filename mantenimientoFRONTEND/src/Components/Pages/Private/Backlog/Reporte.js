@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
    },
    h10: {
     textAlign: 'center',
-    marginTop: 70,
+    marginTop: 50,
     fontSize: 12
    },
    images: {
@@ -162,6 +162,7 @@ export default class Reporte extends React.Component {
                     <Text style={styles.h5}>Descripción del elemento reportado: {this.props.match.params.descripcionReporte}</Text>
                     <View style={styles.cuadro}> 
                          <Text style={styles.h6}>Informe de lo encontrado</Text>
+                         <Text style={styles.h7}>Código de Actividad: {this.props.match.params.codigoActividad}</Text>
                          <Text style={styles.h7}>{this.props.match.params.observacion}</Text>
                     </View>
                     <Text style={styles.h8}>Responsable de mantenimiento: _______________________________________</Text>
